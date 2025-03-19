@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
+body, html {
     font-family: 'Poppins', sans-serif;
     background-color: #141414;
     color: #fff;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 a {
     color: #fff;
@@ -16,6 +18,8 @@ a:link {
     color: #fff;
     text-decoration: none;
 }
+
+/* HEADER */
 header {
     top: 0;
     left: 0;
@@ -48,7 +52,7 @@ header {
 .header-text {
     font-family: 'poppins', sans-serif;
     margin-top: 5px;
-    font-size: 20px;
+    font-size: clamp(1.2rem, 1vw, 2rem);
     font-weight: 700;
 }
 .nav ul {
@@ -70,6 +74,14 @@ header {
 }
 .nav ul li a:hover {
     color: #5e5e5e;
+}
+.hamburger {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
 }
 
 /* MAIN PROFILE */
@@ -327,7 +339,7 @@ header {
     align-items: center;
     text-align: center;
     justify-content: end;
-    width: 275px;
+    width: 250px;
     height: 220px;
     border-radius: 15px;
 }
@@ -429,10 +441,156 @@ footer h5 {
 }
 
 
+@media (max-width: 1150px) { /**********************************************************************************************************************/
+    header {
+        padding: 20px 40px;
+    }
+    .header-text {
+        font-size: 1.5rem;
+    }
+    .profile-container, .about-me-container, .experiences-container, .my-tools-container, .projects-container, .contact-me-container {
+        margin: 0px 120px;
+    }
+    .profile-container h2, .about-me-container h2, .experiences-container h2, .my-tools-container h2, .projects-container h2, .contact-me-container h2  {
+        font-size: 26px;
+    }
+    .location p, .short-bio {
+        font-size: 14px;
+    }
+    .experiences h3 {
+        font-size: 22px;
+        margin-bottom: 13px;
+    }
+    .experiences h4 {
+        font-size: 14px;
+    }
+    .line {
+        height: 150px;
+    }
+    .about-me-container p, .experiences p {
+        font-size: 15px;
+    }
+    .project-pic {
+        width: 18rem;
+        height: 250px;
+    }
+    .contact-socials img {
+        width: 40px;
+        height: 40px;
+    }
+}
 
+@media (max-width: 790px) { /**********************************************************************************************************************/
+    header {
+        padding: 20px 20px;
+        width: 100%;
+    }
+    .header-text {
+        font-size: 1.5rem;
+    }
+    .profile-container, .about-me-container, .experiences-container, .my-tools-container, .projects-container, .contact-me-container {
+        margin: 0px 20px;
+    }
+    .about-me-container, .experiences-container, .my-tools-container, .projects-container, .contact-me-container {
+        margin-left: 0px;
+    }
+    .profile-container h2, .about-me-container h2, .experiences-container h2, .my-tools-container h2, .projects-container h2, .contact-me-container h2  {
+        font-size: 23px;
+    }
+    .location p, .short-bio {
+        font-size: 12px;
+    }
+    .experiences h3 {
+        font-size: 18px;
+        margin-bottom: 3px;
+        height: auto;
+        line-height: 25px;
+    }
+    .experiences h4 {
+        font-size: 13px;
+    }
+    .line {
+        height: 200px;
+    }
+    .about-me-container p, .experiences p {
+        font-size: 13px;
+    }
+    .tools {
+        margin-left: 10px;
+    }
+    .tools div img {
+        width: 40px;
+        height: 40px;
+    }
+    .tools div h4 {
+        font-size: 16px;
+    }
+    .project-items {
+        margin-right: 2vw;
+        margin-left: 2.5vw;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .project-pic {
+        width: 85vw;
+        height: 200px;
+    }
+    .contact-info p {
+        font-size: 13px;
+    }
+    .contact-socials img {
+        width: 30px;
+        height: 30px;
+    }
+    footer {
+        padding: 20px;
+    }
+    .footer h5 {
+        font-size: 10px;
+    }
+    .nav ul {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 20px;
+        right: 2vw;
+        position: absolute;
+        width: 50vw;
+        background-color: #252525;
+        padding: 0px 20px;
+        opacity: 0;
+        visibility: hidden;
+        border-radius: 15px;
+        transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    }
+    .nav ul li {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }
+    .nav ul li a {
+        font-size: 14px;
+    }
+    .nav ul.active {
+        max-height: 300px;
+        padding: 20px 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+}
 
-
-
+@media (max-width: 500px) {
+    .line {
+        height: 260px;
+    }
+}
 
 /* FOR SCROLLBAR */
 ::-webkit-scrollbar {
