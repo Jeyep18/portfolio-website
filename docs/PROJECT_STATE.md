@@ -28,7 +28,7 @@ An approved step is not a verified outcome. Update the table after observing the
 ## Repository and hosting
 
 - Public repository: [`Jeyep18/portfolio-website`](https://github.com/Jeyep18/portfolio-website).
-- Inspected baseline: `main` at `d5d50d8`. The handoff branch contains uncommitted work. Recheck before edits or publication.
+- Inspected baseline: `main` at `d5d50d8`. The implementation is committed and pushed on the handoff branch, followed by documentation updates. Recheck Git status and the latest remote commit before changes.
 - Approved handoff branch: `codex/portfolio-cloud-handoff`. Keep the existing `main` GitHub Pages deployment unchanged.
 - GitHub Pages currently publishes the older root site from `main` and `/`. It does not publish the nested React build automatically.
 - The Vercel preview must use John's own Vercel account. The connector currently points at inaccessible `jan-s-projects7`; use the platform's account/team selection or connection flow. Do not change access or choose another team's project as a workaround.
@@ -43,7 +43,7 @@ npm ci
 npm run build
 ```
 
-Exact lockfile versions are React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. The local reference is Node.js 24.14.0 and npm 11.9.0. These are observed local versions, not proof of a Linux/cloud run.
+Exact lockfile versions are React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. The local reference is Node.js 24.14.0 and npm 11.9.0. Linux CI passed with the committed Node pin and lockfile. Actual Codex Cloud environment activation is a separate pending step.
 
 `src/App.tsx` composes pages. `src/data.ts` owns portfolio data. Components live under `src/components/`; shared motion is in `src/motion.tsx`, visual effects in `src/effects/`, and styles in `src/styles.css`. `scripts/prerender.mjs` fills the three HTML shells and copies the complete curated `assets/` directory into `dist/assets/`. Keep license notices.
 
@@ -71,9 +71,9 @@ Commit/upload the source, lockfile, build configuration, scripts, portable docs,
 
 The root legacy suite `node tests/site.test.mjs` passed 40 checks on November 11, 2026. It reads the root `script.js` and does not cover the active React application.
 
-The [active app README](redesign/prototypes/space-gallery/README.md) records earlier TypeScript/build/prerender and browser checks. Those checks predate the four in-progress UI changes. Recheck affected behavior after those changes before marking them verified.
+The [active app README](redesign/prototypes/space-gallery/README.md) distinguishes earlier browser checks from the latest automated checks. Earlier browser results predate the four revised UI behaviors. They do not establish the current visual or interaction quality.
 
-Required React acceptance includes a fresh build; all three pages and assets; desktop and narrow layouts; anchor destinations and interrupted scrolling; keyboard/dialog focus and dismissal; shared pause/reduced motion; readable script-free output; cleanup of decorative renderers; and no application console errors in the exercised flows. Linux/cloud build, public routes/assets, physical Android touch, and laptop-off persistence remain unverified.
+Required React acceptance includes a fresh build; all three pages and assets; desktop and narrow layouts; anchor destinations and interrupted scrolling; keyboard/dialog focus and dismissal; shared pause/reduced motion; readable script-free output; cleanup of decorative renderers; and no application console errors in the exercised flows. Linux CI build is verified. Current browser behavior, Codex Cloud setup, hosted routes/assets, physical Android touch, and laptop-off persistence remain unverified.
 
 See [`CODEX_CLOUD.md`](CODEX_CLOUD.md) for platform setup, a reusable first-task prompt, and the phone acceptance checklist. A new cloud task starts from the published repository state, not this local conversation or uncommitted files.
 
