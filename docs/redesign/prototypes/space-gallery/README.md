@@ -59,6 +59,6 @@ Earlier screenshots: [About](captures/react-about.jpg), [Experience](captures/re
 
 ## Latest revision checks
 
-Strict TypeScript, Vite build, three-page prerender, four navigation edge-case tests, generated local links/assets/ID checks, and the 40 separate legacy-site checks pass locally. A fresh source-only copy installed and built without relying on the existing node_modules. Dependency versions are pinned, and the lockfile includes Linux optional packages. A Linux GitHub Actions check is configured for the handoff branch.
+Strict TypeScript, Vite build, three-page prerender, four navigation edge-case tests, generated local links/assets/ID checks, and the 40 separate legacy-site checks pass locally. A fresh source-only copy installed and built without relying on the existing node_modules. Dependency versions are pinned, and the lockfile includes Linux optional packages. The [Linux GitHub Actions check](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748) passed for implementation commit b281ba5.
 
 Independent source review identified and checked corrections for motion-toggle anchor jumps, stale page departures after rapid navigation, and star regeneration on pause. Browser checks of the new scroll trajectory, particle glyph alignment, pointer response, and About layout are pending because local browser use is disabled in Work settings. Physical Android, laptop-off access, Safari/Firefox, and public hosting remain separate verification steps. See [the portable project state](../../../PROJECT_STATE.md).

@@ -18,7 +18,7 @@ The active application is `docs/redesign/prototypes/space-gallery/`. It is a Rea
 | Sparse space background replacing DarkVeil | Implemented; renderer lifecycle reviewed; live motion review pending |
 | Canvas particle headings | Implemented with semantic/static fallback; glyph alignment and pointer review pending |
 | Portable project instructions and cloud handoff | Prepared in this documentation update |
-| `codex/portfolio-cloud-handoff` branch and selected public source/assets | Branch created locally; commit and push pending |
+| `codex/portfolio-cloud-handoff` branch and selected public source/assets | Pushed at implementation commit `b281ba5`; remote tree verified |
 | Separate Vercel preview from the active app directory | Approved target; setup/deployment and live checks pending |
 | Saved Codex Cloud environment | None confirmed at this handoff |
 | Android phone review while laptop is off | Required and not performed |
@@ -79,6 +79,12 @@ See [`CODEX_CLOUD.md`](CODEX_CLOUD.md) for platform setup, a reusable first-task
 
 ## Current verification update
 
-The current UI revision passes TypeScript, build/prerender, four navigation edge-case tests, generated page/local asset/anchor checks, and the separate 40 legacy checks. A source-only temporary copy installed and built independently of the working node_modules. Package versions are pinned and Linux optional packages remain in the lockfile. GitHub Actions will check Linux after push.
+The current UI revision passes TypeScript, build/prerender, four navigation edge-case tests, generated page/local asset/anchor checks, and the separate 40 legacy checks. A source-only temporary copy installed and built independently of the working node_modules. Package versions are pinned and Linux optional packages remain in the lockfile. GitHub Actions passed clean Linux installation and all these checks for implementation commit `b281ba5`.
 
 Browser verification is blocked because local browser use is disabled in Work settings. John is connected from Android and cannot operate the laptop UI during this pass. Do not represent earlier screenshots as validation of the new About layout, space field, particle headings, or controlled navigation. Vercel deployment remains blocked on selecting and authorizing John's own account; do not use the inaccessible preconfigured workspace.
+
+## Remote verification
+
+Implementation commit: [`b281ba5cf33028535b24da44673d64e1c8dd62e9`](https://github.com/Jeyep18/portfolio-website/commit/b281ba5cf33028535b24da44673d64e1c8dd62e9). The remote tree matched all 172 committed files, including required source, documentation, lockfile, licenses, and curated media. Raw attachments, node_modules, dist, and .vercel were excluded. [Linux CI passed](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748). Main remains `d5d50d8`, and GitHub Pages still publishes main at `/`. Later documentation-only commits may follow this implementation commit.
+
+Vercel preview and saved Cloud environment are not yet created. Current platform access and Android/laptop-off checks remain pending. GitHub publication did not activate either service.

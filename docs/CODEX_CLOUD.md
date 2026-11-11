@@ -4,7 +4,7 @@ Prepared November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for curr
 
 ## What must be available remotely
 
-Codex Cloud tasks use isolated environments. A task cannot inherit this local chat, private global memory, or uncommitted laptop files. First publish the approved source and curated assets to the approved `codex/portfolio-cloud-handoff` branch of [`Jeyep18/portfolio-website`](https://github.com/Jeyep18/portfolio-website). Confirm the branch and files on GitHub before creating the environment. Keep `main` and its existing GitHub Pages site unchanged.
+Codex Cloud tasks use isolated environments. A GitHub push does not automatically transfer this local chat, private global memory, or uncommitted laptop files. Implementation commit `b281ba5` is already pushed to `codex/portfolio-cloud-handoff` in [`Jeyep18/portfolio-website`](https://github.com/Jeyep18/portfolio-website) and passed [Linux CI](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748). Required source/docs/assets were verified in the remote tree. Confirm the latest branch and files before creating the environment. Keep `main` and its existing GitHub Pages site unchanged.
 
 Include the active application's source, lockfile, configuration, prerender script, approved assets, license notices, `AGENTS.md`, and portable docs. Exclude raw `.codex-attachments/`, dependencies, build output, secrets, `.vercel/`, caches, logs, private game builds, and full private memories/chat history. No backend or environment secret is required.
 
@@ -95,6 +95,15 @@ On John's physical Android phone:
 5. Separately open the supported Codex web/account UI, confirm the saved cloud environment, and start or inspect a cloud task if the account provides it. Confirm the task does not depend on a laptop-hosted process.
 
 Record website and cloud-task outcomes separately. Until this review happens, physical Android behavior and laptop-off operation remain unverified.
+
+## Phone-only setup checklist
+
+1. Open [ChatGPT on the web](https://chatgpt.com/) in Android Chrome and sign in to the same account/workspace. Use web Cloud controls when available. Request Chrome's Desktop site view if the small-screen layout hides configuration controls. If Cloud controls remain absent, account/workspace availability needs resolution. The laptop connection does not establish that a Cloud environment exists.
+2. Choose Work in > Cloud > Select environment > Create environment, or Settings > Codex Cloud > Environments > Create environment. Choose Jeyep18/portfolio-website and codex/portfolio-cloud-handoff before installation. If the picker offers only a repository, tell the setup task to check out that branch first. Request Node 24.14.0 and use the install/check commands above.
+3. Review the environment report, keep access private to you, save, and Publish. Wait for Environment published. Start a new task with the first-task prompt above. Confirm its branch, commit, Node version, checks, and lack of laptop-only dependencies.
+4. For hosting, open [Vercel New Project](https://vercel.com/new) on the phone and use your own account. Import the existing repository and configure the root/install/build/output settings above. After the project is linked, Deployments > Create Deployment accepts the full branch name or [branch URL](https://github.com/Jeyep18/portfolio-website/tree/codex/portfolio-cloud-handoff). Check that reference because main does not contain this nested React app. See [Vercel Git deployment guidance](https://vercel.com/docs/git#creating-a-deployment-from-a-git-reference).
+5. If you prefer Codex to deploy after your own Vercel connection becomes available in Cloud, explicitly authorize a Preview deployment of codex/portfolio-cloud-handoff from docs/redesign/prototypes/space-gallery using npm ci, npm run build, output dist, with no main/GitHub Pages changes or paid options. Request the deployed commit, build result, URL, and live route/asset checks. Do not paste a Vercel token into chat.
+6. Open the resulting Vercel URL in Android Chrome, test home/archive.html/cherit.html and motion controls, then reload with the laptop off. Separately reopen the Cloud task and confirm it runs in Cloud.
 
 ## Current access limitations
 
