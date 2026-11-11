@@ -1,0 +1,16 @@
+# Upload only the active application's source and curated assets.
+*
+!docs/
+!docs/redesign/
+!docs/redesign/prototypes/
+!docs/redesign/prototypes/space-gallery/
+!docs/redesign/prototypes/space-gallery/**
+docs/redesign/prototypes/space-gallery/node_modules/
+docs/redesign/prototypes/space-gallery/dist/
+docs/redesign/prototypes/space-gallery/.vite/
+docs/redesign/prototypes/space-gallery/.vercel/
+docs/redesign/prototypes/space-gallery/.env
+docs/redesign/prototypes/space-gallery/.env.*
+docs/redesign/prototypes/space-gallery/captures/
+docs/redesign/prototypes/space-gallery/__pycache__/
+**/*.log
