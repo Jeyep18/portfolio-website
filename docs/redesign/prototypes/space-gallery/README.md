@@ -1,6 +1,6 @@
 # Space portfolio React preview
 
-The approved React migration is isolated in this folder. The repository's main site and earlier prototypes remain separate. No commit, push, or deployment is part of this preview.
+The approved React migration is isolated in this folder. The repository's main site and earlier prototypes remain separate. The handoff branch is deployed to [the separate Vercel site](https://portfolio-space-gallery.vercel.app/). See [current project state](../../../PROJECT_STATE.md) for the protected Preview, exact deployed commit and verification limits. The existing main/GitHub Pages deployment is unchanged.
 
 ## Run locally
 

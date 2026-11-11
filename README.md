@@ -4,6 +4,8 @@ The active portfolio is the React application in [`docs/redesign/prototypes/spac
 
 Read [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md) for current decisions, verification limits, and pending work. [`AGENTS.md`](AGENTS.md) contains portable contributor instructions. [`docs/CODEX_CLOUD.md`](docs/CODEX_CLOUD.md) explains the planned cloud environment and separate hosted preview.
 
+The separate React site is available at https://portfolio-space-gallery.vercel.app/. It was built and tested in Cloud, independently of the laptop. The [handoff](docs/CODEX_CLOUD.md#reopen-from-android-with-the-laptop-off) includes Android viewing and reusable environment publication steps; physical phone acceptance and environment publication remain separate checks.
+
 ## Build the active application
 
 Run these commands from the repository root with Node.js and npm installed:

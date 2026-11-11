@@ -20,8 +20,34 @@ John authorized a separate Vercel CLI device sign-in from Android. It identifies
 his account as **jfmihoyofriends-9058**, on **Hobby**. New project
 **portfolio-space-gallery** belongs to that account. The connector still returns
 403 for `jan-s-projects7`; that workspace was not authorized or modified.
-Deployment URL, exact commit and live verification will be recorded here after
-the deployment succeeds. Until then there is no verified hosted preview.
+
+| Hosted result | Verified value |
+| --- | --- |
+| Public phone URL | https://portfolio-space-gallery.vercel.app/ |
+| Separate Preview | https://portfolio-space-gallery-6yswp7340-jfmihoyofriends-9058.vercel.app/ |
+| Deployed branch/commit | `codex/portfolio-cloud-handoff` / `d4ddf1dbc2a39ced1e6d61cd871cec761974f255` |
+| Vercel project | `portfolio-space-gallery` / `prj_8h6eJsFTfJGvGF6A1hgHmK2H6mma` |
+| Preview deployment | `dpl_os6qXeeSPakdv3uGSRGZFnMZAkEV`, READY, Preview |
+| Initial deployment | `dpl_CYikna3NEUJZSTeWS28ggti3ei5C`, READY, Production in the new project only |
+| Build settings | Root `docs/redesign/prototypes/space-gallery`; `npm ci`; `npm run build`; `dist`; Node `24.x` |
+| Live verification | All three pages hydrated; all 32 output files byte-identical to the checked Cloud build; desktop/narrow interactions passed on both URLs; no exercised app errors or failed requests |
+| Access | Public alias works anonymously; Preview requires the authorized account's Vercel login |
+| Source delivery | CLI upload from the clean committed branch; deployment metadata confirms exact Git SHA; 69 tracked application files only |
+| Automatic Git previews | Pending: GitHub linking returns HTTP 400 because the new Vercel account has no GitHub Login Connection |
+
+Vercel requires the first deployment of a new project to be Production. John
+explicitly approved that first deployment, followed by the separate Preview.
+Both use the same source commit on Hobby/basic build infrastructure. No custom
+domain, paid option, main merge, or GitHub Pages change was made. Subsequent
+handoff documentation commits do not change the deployed application. [Linux CI
+also passed for the deployed commit](https://github.com/Jeyep18/portfolio-website/actions/runs/42986188793).
+
+Use the public phone URL for the simplest review. Deployment protection was
+preserved; the Preview was browser-tested with a project-scoped development OIDC
+header. The temporary automation bypass created by a CLI HTTP probe was revoked.
+Future Cloud tasks can update the Preview manually after account/device sign-in.
+GitHub push alone will not redeploy this project until its Git connection is set
+up. See `CODEX_CLOUD.md` for that optional phone step.
 
 ## Current direction
 
@@ -33,14 +59,14 @@ The active application is `docs/redesign/prototypes/space-gallery/`. It is a Rea
 
 | Item | State at this handoff |
 | --- | --- |
-| React application, resume, certificates, event gallery, project dialogs | Implemented locally; earlier verification is recorded in the active app README |
+| React application, resume, certificates, event gallery, project dialogs | Built and exercised in Cloud; public and protected hosted routes/assets verified |
 | Controlled GSAP anchor scrolling | Cloud Chromium trajectory, rapid/interrupted navigation, history and motion toggling passed |
 | Compact two-column About | Cloud desktop/tablet and narrow layout review passed; physical phone pending |
 | Sparse space background replacing DarkVeil | Cloud pause/resume pixel and 105-star continuity checks passed |
 | Canvas particle headings | Cloud formation, pointer response/settling, static and semantic fallbacks checked |
 | Portable project instructions and cloud handoff | Reusable exact-Node installer tested; phone startup/publication instructions updated |
-| `codex/portfolio-cloud-handoff` branch and selected public source/assets | Pushed at implementation commit `b281ba5`; remote tree verified |
-| Separate Vercel preview from the active app directory | Approved target; setup/deployment and live checks pending |
+| `codex/portfolio-cloud-handoff` branch and selected public source/assets | Cloud setup and verification updates pushed; deployed source commit `d4ddf1d`; main unchanged |
+| Separate Vercel preview from the active app directory | READY under the authorized own Hobby account; URLs, commit and live evidence above |
 | Saved Codex Cloud environment | Current task runs in Cloud; saved/published reusable environment still not confirmed |
 | Android phone review while laptop is off | Required and not performed |
 
@@ -64,7 +90,7 @@ npm ci
 npm run build
 ```
 
-Exact lockfile versions are React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. The local reference is Node.js 24.14.0 and npm 11.9.0. Linux CI passed with the committed Node pin and lockfile. Actual Codex Cloud environment activation is a separate pending step.
+Exact lockfile versions are React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. Actual Cloud checks passed on Node.js 24.14.0 and npm 11.9.0. Linux CI also passed with the committed Node pin and lockfile. Publishing a reusable Codex Cloud environment remains a separate pending step.
 
 `src/App.tsx` composes pages. `src/data.ts` owns portfolio data. Components live under `src/components/`; shared motion is in `src/motion.tsx`, visual effects in `src/effects/`, and styles in `src/styles.css`. `scripts/prerender.mjs` fills the three HTML shells and copies the complete curated `assets/` directory into `dist/assets/`. Keep license notices.
 

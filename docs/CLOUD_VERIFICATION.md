@@ -86,8 +86,40 @@ The Vercel connector still points at inaccessible `jan-s-projects7` (HTTP 403).
 That workspace was not authorized or changed. The user completed Vercel's device
 authorization from Android for the separate Cloud CLI. The CLI identified the
 authorized own account as `jfmihoyofriends-9058`, on the free Hobby plan.
-A separate `portfolio-space-gallery` project was created there. Deployment and
-live checks are recorded in `PROJECT_STATE.md` after observing their result.
+A separate `portfolio-space-gallery` project was created there. Vercel's first
+deployment required a Production label; John explicitly approved that initial
+deployment in the new project, followed by the separate Preview. Both are READY
+at commit `d4ddf1dbc2a39ced1e6d61cd871cec761974f255`.
+
+- Public phone URL: https://portfolio-space-gallery.vercel.app/ (anonymous HTTP 200).
+- Protected Preview: https://portfolio-space-gallery-6yswp7340-jfmihoyofriends-9058.vercel.app/.
+- Preview ID: `dpl_os6qXeeSPakdv3uGSRGZFnMZAkEV`.
+- Initial deployment ID: `dpl_CYikna3NEUJZSTeWS28ggti3ei5C`.
+- Vercel API metadata confirms the exact Git branch and commit above. This is a
+  CLI source upload, not an established Git integration. The dry-run manifest
+  verified 69 tracked application source/asset files, 1,175,454 bytes; dependencies,
+  build output, captures, caches, unrelated studies and private files were excluded.
+- Both Vercel builds ran `npm ci` and `npm run build` successfully with Node
+  `24.x` configured. The provider controls its patch version; it was not separately
+  measured. The exact Cloud runtime above was measured. Vercel's npm emitted a
+  nonfatal provider `cache-dir` configuration warning.
+- Hosted Chromium checks on both URLs loaded and hydrated all three pages,
+  exercised anchors, particle formation, motion pause/resume, project dialogs,
+  experience photo dialogs and keyboard focus at desktop/narrow sizes.
+- All **32** hosted output files (three HTML pages plus all bundled/curated
+  assets) were fetched and matched the checked local build's SHA-256 hashes.
+  No application console errors or failed requests occurred in the hosted checks.
+- All three public pages remained readable with JavaScript disabled.
+- Preview browser requests used a short-lived, project-scoped development OIDC
+  header, sent only to the Preview origin. No token was printed or committed.
+  An earlier `vercel curl` probe generated an automation bypass; that single test
+  bypass was revoked. The project's Vercel authentication setting was preserved.
+- [Linux CI passed on the deployed commit](https://github.com/Jeyep18/portfolio-website/actions/runs/42986188793).
+
+GitHub linking returned HTTP 400: this Vercel account needs a GitHub Login
+Connection. Automatic previews on push remain unconfigured. Manual Cloud CLI
+deployment works after phone/device sign-in. See `CODEX_CLOUD.md` for the optional
+Git connection step and `PROJECT_STATE.md` for the user-facing status.
 
 Physical Android, actual laptop-off reload, Firefox/Safari, and a fresh task from
 a published reusable Cloud environment remain separate acceptance checks.

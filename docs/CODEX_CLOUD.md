@@ -76,11 +76,19 @@ uploads/private data. This task is inspection and verification only.
 
 For later work, replace the final inspection-only request with the specific approved task. Keep the repository, branch, active-directory, and publication boundaries explicit.
 
-## Create the separate hosted preview
+## Use and update the separate hosted preview
 
 A hosted preview supplies a persistent website URL for phone review while the laptop is off. It is separate from Codex Cloud and from the existing GitHub Pages site.
 
 The approved target is a separate Vercel preview using John's own account. The connector's `jan-s-projects7` scope remains inaccessible and must not be used or authorized. In this Cloud pass John completed Vercel's device sign-in from Android. The separate CLI session identified his authorized own account as `jfmihoyofriends-9058` (Hobby). Project `portfolio-space-gallery` was created there. Check `PROJECT_STATE.md` for the actual deployed commit and URL.
+
+The verified public phone URL is https://portfolio-space-gallery.vercel.app/.
+The separate Preview is
+https://portfolio-space-gallery-6yswp7340-jfmihoyofriends-9058.vercel.app/ and
+requires sign-in to that Vercel account. Both currently serve source commit
+`d4ddf1dbc2a39ced1e6d61cd871cec761974f255`. Vercel required the new project's
+first deployment to be labelled Production; John separately approved it before
+the Preview was created. That deployment belongs only to this new project.
 
 For a future Cloud session without CLI authentication, use Vercel's normal
 `vercel login` device flow. Open the displayed vercel.com OAuth/device link in
@@ -88,6 +96,35 @@ Android Chrome and approve there; never paste a token or password into chat.
 Run `vercel whoami --format json` and verify the intended account, then inspect
 the named project with `--scope jfmihoyofriends-9058` before deploying. Reusable
 Cloud setup does not require, copy or publish this task's CLI authentication.
+
+For a specifically authorized future Preview update, commit/push the reviewed
+handoff branch, then run from the repository root using an available Vercel CLI:
+
+```sh
+vercel project inspect portfolio-space-gallery --scope jfmihoyofriends-9058 --non-interactive
+vercel deploy --dry --project portfolio-space-gallery --scope jfmihoyofriends-9058 --json
+vercel deploy --project portfolio-space-gallery --scope jfmihoyofriends-9058 --environment preview --yes
+```
+
+Confirm a clean checkout, the intended commit/account/project, and the upload
+manifest before the final command. The committed `.vercelignore` limits uploads
+to application source and curated assets; it excludes build output, dependencies,
+captures and unrelated repository material. Record the new Preview URL and Git
+commit, then verify hosted routes/assets. A Preview update does not update the
+public production alias. Updating that alias needs an authorized deployment to
+the same separate project's Production target.
+
+GitHub linking is optional for manual Cloud deployments and is currently pending.
+Vercel returned HTTP 400 because this account has no GitHub Login Connection.
+To enable automatic previews from a phone: in Vercel select the authorized own
+account, open **Account Settings > Authentication > Login Connections**, add
+GitHub, and authorize `Jeyep18/portfolio-website` through GitHub's normal UI. Then
+open **portfolio-space-gallery > Settings > Git > Connect Git Repository** (or
+have a Cloud task run the already attempted `vercel git connect` for this named
+project/scope). Confirm the nested root, install/build/output values and intended
+branch deployment rules before enabling automatic builds. Do not choose
+`jan-s-projects7`, create another project, or enable a paid plan. See [Vercel's
+login connection guidance](https://vercel.com/docs/accounts/create-an-account#login-methods-and-connections).
 
 Review these settings before the approved deployment:
 
@@ -122,7 +159,7 @@ Record website and cloud-task outcomes separately. Until this review happens, ph
 1. Open [ChatGPT on the web](https://chatgpt.com/) in Android Chrome and sign in to the same account/workspace. Use web Cloud controls when available. Request Chrome's Desktop site view if the small-screen layout hides configuration controls. If Cloud controls remain absent, account/workspace availability needs resolution. The laptop connection does not establish that a Cloud environment exists.
 2. Choose Work in > Cloud > Select environment > Create environment, or Settings > Codex Cloud > Environments > Create environment. Choose Jeyep18/portfolio-website and codex/portfolio-cloud-handoff before installation. If the picker offers only a repository, tell the setup task to check out that branch first. Request Node 24.14.0 and use the install/check commands above.
 3. Review the environment report, keep access private to you, save, and Publish. Wait for Environment published. Start a new task with the first-task prompt above. Confirm its branch, commit, Node version, checks, and lack of laptop-only dependencies.
-4. For hosting, open [Vercel New Project](https://vercel.com/new) on the phone and use your own account. Import the existing repository and configure the root/install/build/output settings above. After the project is linked, Deployments > Create Deployment accepts the full branch name or [branch URL](https://github.com/Jeyep18/portfolio-website/tree/codex/portfolio-cloud-handoff). Check that reference because main does not contain this nested React app. See [Vercel Git deployment guidance](https://vercel.com/docs/git#creating-a-deployment-from-a-git-reference).
+4. Hosting already exists: open [portfolio-space-gallery in your own Vercel account](https://vercel.com/jfmihoyofriends-9058/portfolio-space-gallery). Use the verified public URL for phone review. If automatic Git previews are wanted, complete the Login Connection/Git steps above, then use the full [handoff branch URL](https://github.com/Jeyep18/portfolio-website/tree/codex/portfolio-cloud-handoff) for a Preview. Main does not contain this nested React app. Manual Cloud Preview deployment is already working; no new project or paid plan is needed.
 5. This task already authorized a Preview deployment. For later work, authorize the specific Preview update on codex/portfolio-cloud-handoff, with the same root/build settings and no main/GitHub Pages changes or paid options. If authentication has expired, complete the device flow on the phone. Request the deployed commit, build result, URL, and live route/asset checks. Do not paste a Vercel token into chat.
 6. Open the resulting Vercel URL in Android Chrome, test home/archive.html/cherit.html and motion controls, then reload with the laptop off. Separately reopen the Cloud task and confirm it runs in Cloud.
 
