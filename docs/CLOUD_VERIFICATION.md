@@ -121,5 +121,8 @@ Connection. Automatic previews on push remain unconfigured. Manual Cloud CLI
 deployment works after phone/device sign-in. See `CODEX_CLOUD.md` for the optional
 Git connection step and `PROJECT_STATE.md` for the user-facing status.
 
-Physical Android, actual laptop-off reload, Firefox/Safari, and a fresh task from
-a published reusable Cloud environment remain separate acceptance checks.
+After hosted verification, John reported: **all three public pages load on his
+Android phone, and the laptop is off**. This is user-observed physical-phone and
+laptop-off page access, distinct from Cloud emulation. Full physical touch,
+motion, photo/dialog and download acceptance was not reported. Firefox/Safari
+and a fresh task from a published reusable Cloud environment also remain untested.

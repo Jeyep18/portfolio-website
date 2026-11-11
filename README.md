@@ -4,7 +4,7 @@ The active portfolio is the React application in [`docs/redesign/prototypes/spac
 
 Read [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md) for current decisions, verification limits, and pending work. [`AGENTS.md`](AGENTS.md) contains portable contributor instructions. [`docs/CODEX_CLOUD.md`](docs/CODEX_CLOUD.md) explains the planned cloud environment and separate hosted preview.
 
-The separate React site is available at https://portfolio-space-gallery.vercel.app/. It was built and tested in Cloud, independently of the laptop. The [handoff](docs/CODEX_CLOUD.md#reopen-from-android-with-the-laptop-off) includes Android viewing and reusable environment publication steps; physical phone acceptance and environment publication remain separate checks.
+The separate React site is available at https://portfolio-space-gallery.vercel.app/. It was built and tested in Cloud, and John confirmed all three pages load on Android with the laptop off. The [handoff](docs/CODEX_CLOUD.md#reopen-from-android-with-the-laptop-off) includes viewing and reusable environment publication steps; full physical interaction review and environment publication remain pending.
 
 ## Build the active application
 
@@ -57,6 +57,6 @@ node tests/site.test.mjs
 
 The legacy suite passed 40 checks on November 11, 2026. It does not test the React application.
 
-A dedicated branch, `codex/portfolio-cloud-handoff`, and a separate Vercel preview are the approved publication targets for the handoff. Check their actual status in [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md). Keep the existing GitHub Pages deployment unchanged. No cloud setup, remote push, hosted preview, or laptop-off phone acceptance is established by this README.
+A dedicated branch, `codex/portfolio-cloud-handoff`, and the separate Vercel project are the publication targets for the handoff. Check deployed commits, completed checks and remaining environment/interaction steps in [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md). Keep the existing GitHub Pages deployment unchanged.
 
 Keep `.codex-attachments/`, dependencies, build output, credentials, provider metadata, caches, and logs out of published source. Preserve historical studies under `docs/redesign/` and the original source backup under `docs/redesign/source-before-redesign/`.

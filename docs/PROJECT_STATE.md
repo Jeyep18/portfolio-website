@@ -13,8 +13,10 @@ See [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for actual evidence and lim
 
 The reusable installer is `scripts/cloud-setup.sh`. Cloud status has no saved
 source configuration/version ID, and no publish tool is available in this task.
-Publishing a reusable environment and physical Android/laptop-off acceptance
-remain pending phone actions; see [`CODEX_CLOUD.md`](CODEX_CLOUD.md).
+Publishing a reusable environment remains a pending phone action; see
+[`CODEX_CLOUD.md`](CODEX_CLOUD.md). John confirmed from Android that all three
+hosted pages load while the laptop is off. A full physical touch/motion/dialog
+review and a fresh task from a published environment are still pending.
 
 John authorized a separate Vercel CLI device sign-in from Android. It identifies
 his account as **jfmihoyofriends-9058**, on **Hobby**. New project
@@ -68,7 +70,7 @@ The active application is `docs/redesign/prototypes/space-gallery/`. It is a Rea
 | `codex/portfolio-cloud-handoff` branch and selected public source/assets | Cloud setup and verification updates pushed; deployed source commit `d4ddf1d`; main unchanged |
 | Separate Vercel preview from the active app directory | READY under the authorized own Hobby account; URLs, commit and live evidence above |
 | Saved Codex Cloud environment | Current task runs in Cloud; saved/published reusable environment still not confirmed |
-| Android phone review while laptop is off | Required and not performed |
+| Android pages with laptop off | John confirmed all three public pages load; full physical touch/motion review remains pending |
 
 An approved step is not a verified outcome. Update the table after observing the result. Do not infer cloud or public-hosting readiness from local build success.
 
@@ -120,7 +122,7 @@ The root legacy suite `node tests/site.test.mjs` passed 40 checks on November 11
 
 The [active app README](redesign/prototypes/space-gallery/README.md) distinguishes earlier browser checks from the latest automated checks. Earlier browser results predate the four revised UI behaviors. They do not establish the current visual or interaction quality.
 
-Required React acceptance includes a fresh build; all three pages and assets; desktop and narrow layouts; anchor destinations and interrupted scrolling; keyboard/dialog focus and dismissal; shared pause/reduced motion; readable script-free output; cleanup of decorative renderers; and no application console errors in the exercised flows. Linux CI build is verified. Current browser behavior, Codex Cloud setup, hosted routes/assets, physical Android touch, and laptop-off persistence remain unverified.
+Required React acceptance includes a fresh build; all three pages and assets; desktop and narrow layouts; anchor destinations and interrupted scrolling; keyboard/dialog focus and dismissal; shared pause/reduced motion; readable script-free output; cleanup of decorative renderers; and no application console errors in the exercised flows. The Cloud/hosted checks above now cover these exercised browser flows, and John confirmed Android page access with the laptop off. Full physical interaction review and published reusable environment acceptance remain pending.
 
 See [`CODEX_CLOUD.md`](CODEX_CLOUD.md) for platform setup, a reusable first-task prompt, and the phone acceptance checklist. A new cloud task starts from the published repository state, not this local conversation or uncommitted files.
 
@@ -139,6 +141,7 @@ reusable environment publication are still distinct pending steps.
 Implementation commit: [`b281ba5cf33028535b24da44673d64e1c8dd62e9`](https://github.com/Jeyep18/portfolio-website/commit/b281ba5cf33028535b24da44673d64e1c8dd62e9). The remote tree matched all 172 committed files, including required source, documentation, lockfile, licenses, and curated media. Raw attachments, node_modules, dist, and .vercel were excluded. [Linux CI passed](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748). Main remains `d5d50d8`, and GitHub Pages still publishes main at `/`. Later documentation-only commits may follow this implementation commit.
 
 The new Vercel project exists under the authorized own account; deployment/live
-verification is recorded in the latest status above. A saved published Cloud
-environment and physical Android/laptop-off checks remain pending. GitHub
-publication alone does not establish either result.
+verification is recorded in the latest status above. John confirmed that all
+three pages load on Android with the laptop off. A saved published Cloud
+environment and full physical interaction review remain pending. GitHub
+publication alone does not establish those results.

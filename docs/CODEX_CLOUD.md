@@ -1,6 +1,6 @@
 # Codex Cloud and hosted preview handoff
 
-Updated November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for current scope and hosting status, and [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for the completed Cloud install/browser checks. A running Cloud task and a published reusable environment are different states. Physical phone acceptance is still pending.
+Updated November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for current scope and hosting status, and [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for the completed Cloud install/browser checks. A running Cloud task and a published reusable environment are different states. John confirmed all three public pages load on Android with the laptop off; full physical interaction review is still pending.
 
 ## What must be available remotely
 
@@ -152,7 +152,7 @@ On John's physical Android phone:
 4. Turn the laptop off and reload the hosted pages. Record the observed result.
 5. Separately open the supported Codex web/account UI, confirm the saved cloud environment, and start or inspect a cloud task if the account provides it. Confirm the task does not depend on a laptop-hosted process.
 
-Record website and cloud-task outcomes separately. Until this review happens, physical Android behavior and laptop-off operation remain unverified.
+Record website and cloud-task outcomes separately. John confirmed all three public pages load on Android while the laptop is off. Full physical interaction review and a fresh task from a published reusable environment remain unconfirmed.
 
 ## Phone-only setup checklist
 
@@ -187,10 +187,11 @@ Record website and cloud-task outcomes separately. Until this review happens, ph
    résumé download, and Pause/Enable motion. Scroll through all About content.
 6. With the laptop powered off, reload each URL. Separately reopen this Cloud
    conversation or start a task from the published environment. Report website
-   reload and Cloud-task results separately; neither physical check has been
-   performed by the agent.
+   reload and Cloud-task results separately. John already confirmed all three
+   pages load on Android with the laptop off; full physical interaction review
+   and a fresh task from a published environment have not been confirmed.
 
-The environment publication and physical-phone steps are pending user actions.
+Environment publication and the remaining physical interaction review are pending user actions.
 The completed Cloud browser checks are in `CLOUD_VERIFICATION.md`; local browser
 settings no longer block them. The Vercel connector remains unusable for this
 project, while the separately authorized Cloud CLI is the intended deployment
