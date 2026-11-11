@@ -14,7 +14,7 @@ npm ci
 npm run build
 ```
 
-The lockfile records React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. The local reference runtime is Node.js 24.14.0 with npm 11.9.0. Linux/cloud compatibility still needs verification.
+The lockfile records React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. Node.js 24.14.0 with npm 11.9.0 passed the Cloud install, tests, build and output checks. From a Linux checkout, `bash scripts/cloud-setup.sh` installs that checksum-verified runtime and runs all required checks. See [the Cloud verification record](docs/CLOUD_VERIFICATION.md) for browser evidence and remaining platform/device checks.
 
 The build checks TypeScript, builds the application, prerenders `index.html`, `archive.html`, and `cherit.html`, and copies curated assets into `dist/assets/`. There is no backend or required environment secret.
 

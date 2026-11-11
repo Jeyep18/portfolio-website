@@ -1,6 +1,6 @@
 # Codex Cloud and hosted preview handoff
 
-Prepared November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for current scope and evidence. Cloud setup, deployment, and phone acceptance are pending until their results are observed.
+Updated November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for current scope and hosting status, and [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for the completed Cloud install/browser checks. A running Cloud task and a published reusable environment are different states. Physical phone acceptance is still pending.
 
 ## What must be available remotely
 
@@ -12,28 +12,42 @@ Include the active application's source, lockfile, configuration, prerender scri
 
 The official workflow uses the web or desktop app. Open `Work in`, choose `Cloud`, then `Select environment` and `Create environment`. Select the repository and ensure the approved target branch is selected before setup. Choose `Get started`, review the environment, use `Save/Publish`, and wait for `Environment published` before `Start new task`. Labels can vary with the account UI. See the official [cloud environments guide](https://learn.chatgpt.com/docs/environments/cloud-environments).
 
-Do not assume a saved environment already exists. Confirm it in the account UI. Select an available Node.js runtime compatible with the lockfile; the local reference is Node.js 24.14.0 and npm 11.9.0. Record the actual cloud versions and build result after setup.
+The current executor is running, but its environment status has no source configuration or published version ID. No save/publish tool is available in this task. Publish through the phone-accessible account UI below. Node.js 24.14.0 and npm 11.9.0 have now passed the actual Cloud checks.
 
 Use the environment's reusable `Install script` field for dependency setup. The script below assumes the initial working directory is the repository root; confirm that in the environment UI:
 
 ```sh
-cd docs/redesign/prototypes/space-gallery
-npm ci
-npm test
-npm run build
-npm run check:build
+git fetch origin refs/heads/codex/portfolio-cloud-handoff:refs/remotes/origin/codex/portfolio-cloud-handoff
+git switch codex/portfolio-cloud-handoff
+bash scripts/cloud-setup.sh
 ```
+
+The tested installer resolves the repository root itself, verifies the official
+Node download's checksum, and runs the four application commands plus the 40
+separate legacy checks. It requires Linux x64 or arm64, Bash, curl, tar/xz,
+sha256sum and access to nodejs.org and the package-lock registry hosts. The runtime
+is kept in ignored `.cache/portfolio-cloud/`; it does not change the system Node.
+Only Linux x64 was exercised in this pass.
 
 Use the reusable `Start skill` field for these project instructions:
 
 ```text
 Read AGENTS.md and docs/PROJECT_STATE.md first. Work on the active React app in
-docs/redesign/prototypes/space-gallery, not the legacy root homepage. Respect
+docs/redesign/prototypes/space-gallery, not the legacy root homepage. In each
+shell, from the repository root, use:
+export PATH="$(git rev-parse --show-toplevel)/.cache/portfolio-cloud/node/bin:$PATH"
+Check node --version and npm --version. If the cached runtime is missing,
+run bash scripts/cloud-setup.sh within the task's installation authorization.
+Respect
 the requested task's approval boundary and preserve unrelated changes. Run
 npm test, npm run build, and npm run check:build from the active app directory for relevant React changes.
 Report actual checks and remaining limits. Keep the existing GitHub Pages
 deployment unchanged. Do not commit, push, deploy, change account access,
 or install new dependencies without explicit authorization for that action.
+For a Cloud-local preview, run npm run preview in the active app directory
+after building, then verify http://127.0.0.1:8769/ from a Cloud browser. This
+loopback address is not a persistent phone URL; use the verified Vercel URL
+in PROJECT_STATE.md for phone viewing. Stop or rebuild the preview as needed.
 ```
 
 These reusable fields configure future tasks. They do not transfer a local chat or authorize additional work. See the official [environment modes guide](https://learn.chatgpt.com/docs/environments/modes) for the distinction between local and cloud work, and [remote connections](https://learn.chatgpt.com/docs/remote-connections) for the separate remote-connection workflow.
@@ -66,7 +80,14 @@ For later work, replace the final inspection-only request with the specific appr
 
 A hosted preview supplies a persistent website URL for phone review while the laptop is off. It is separate from Codex Cloud and from the existing GitHub Pages site.
 
-The approved target is a new Vercel preview using John's own Vercel account. The currently connected `jan-s-projects7` scope is inaccessible. Use Vercel's normal account/team selection or reconnect flow to select John's account; do not change permissions or deploy under another team's account to bypass the issue.
+The approved target is a separate Vercel preview using John's own account. The connector's `jan-s-projects7` scope remains inaccessible and must not be used or authorized. In this Cloud pass John completed Vercel's device sign-in from Android. The separate CLI session identified his authorized own account as `jfmihoyofriends-9058` (Hobby). Project `portfolio-space-gallery` was created there. Check `PROJECT_STATE.md` for the actual deployed commit and URL.
+
+For a future Cloud session without CLI authentication, use Vercel's normal
+`vercel login` device flow. Open the displayed vercel.com OAuth/device link in
+Android Chrome and approve there; never paste a token or password into chat.
+Run `vercel whoami --format json` and verify the intended account, then inspect
+the named project with `--scope jfmihoyofriends-9058` before deploying. Reusable
+Cloud setup does not require, copy or publish this task's CLI authentication.
 
 Review these settings before the approved deployment:
 
@@ -102,9 +123,38 @@ Record website and cloud-task outcomes separately. Until this review happens, ph
 2. Choose Work in > Cloud > Select environment > Create environment, or Settings > Codex Cloud > Environments > Create environment. Choose Jeyep18/portfolio-website and codex/portfolio-cloud-handoff before installation. If the picker offers only a repository, tell the setup task to check out that branch first. Request Node 24.14.0 and use the install/check commands above.
 3. Review the environment report, keep access private to you, save, and Publish. Wait for Environment published. Start a new task with the first-task prompt above. Confirm its branch, commit, Node version, checks, and lack of laptop-only dependencies.
 4. For hosting, open [Vercel New Project](https://vercel.com/new) on the phone and use your own account. Import the existing repository and configure the root/install/build/output settings above. After the project is linked, Deployments > Create Deployment accepts the full branch name or [branch URL](https://github.com/Jeyep18/portfolio-website/tree/codex/portfolio-cloud-handoff). Check that reference because main does not contain this nested React app. See [Vercel Git deployment guidance](https://vercel.com/docs/git#creating-a-deployment-from-a-git-reference).
-5. If you prefer Codex to deploy after your own Vercel connection becomes available in Cloud, explicitly authorize a Preview deployment of codex/portfolio-cloud-handoff from docs/redesign/prototypes/space-gallery using npm ci, npm run build, output dist, with no main/GitHub Pages changes or paid options. Request the deployed commit, build result, URL, and live route/asset checks. Do not paste a Vercel token into chat.
+5. This task already authorized a Preview deployment. For later work, authorize the specific Preview update on codex/portfolio-cloud-handoff, with the same root/build settings and no main/GitHub Pages changes or paid options. If authentication has expired, complete the device flow on the phone. Request the deployed commit, build result, URL, and live route/asset checks. Do not paste a Vercel token into chat.
 6. Open the resulting Vercel URL in Android Chrome, test home/archive.html/cherit.html and motion controls, then reload with the laptop off. Separately reopen the Cloud task and confirm it runs in Cloud.
 
-## Current access limitations
+## Reopen from Android with the laptop off
 
-John can currently reach the laptop only through Codex from Android. Local browser use is disabled in Work settings, so new browser verification cannot run in this session. The Vercel connector requires the intended own-account selection/authorization before it can create a preview. GitHub publication does not resolve these account settings. Complete the cloud and hosted-preview steps from an account UI available on the phone or web, then record the observed results.
+1. In Android Chrome, open https://chatgpt.com/ with the same ChatGPT
+   account/workspace and open this conversation from history. Bookmark its actual
+   browser address; no conversation-specific URL is available to the agent.
+2. Select **Work in > Cloud** and confirm the task uses the Cloud environment.
+   This task's commands and Chromium ran in Cloud and did not use the laptop.
+   Existing tasks retain their own files; verify branch and remote HEAD on resume.
+3. To make the setup reusable, use **Settings > Codex Cloud > Environments >
+   Create environment**, select `Jeyep18/portfolio-website`, and **Get started**.
+   Set the Install script and Start skill above. Use Chrome **Desktop site** if
+   controls are hidden. Review the setup, keep **Only me**, **Save draft**, then
+   **Publish**. Wait for **Environment published** before **Start a new task**.
+   If Cloud controls are absent, account/workspace access remains a platform
+   blocker; this task cannot enable those controls for the account.
+4. In a fresh task, use the first-task prompt above. Confirm Cloud, the handoff
+   branch, latest remote commit, Node 24.14.0 and actual checks. No laptop process
+   or private local memory is needed. Reauthorize provider access on the phone
+   only when the requested work needs it.
+5. Open the verified Vercel URL in `PROJECT_STATE.md`, then `/archive.html` and
+   `/cherit.html`. Test touch anchors, all project dialogs, experience photos,
+   résumé download, and Pause/Enable motion. Scroll through all About content.
+6. With the laptop powered off, reload each URL. Separately reopen this Cloud
+   conversation or start a task from the published environment. Report website
+   reload and Cloud-task results separately; neither physical check has been
+   performed by the agent.
+
+The environment publication and physical-phone steps are pending user actions.
+The completed Cloud browser checks are in `CLOUD_VERIFICATION.md`; local browser
+settings no longer block them. The Vercel connector remains unusable for this
+project, while the separately authorized Cloud CLI is the intended deployment
+path for this task.

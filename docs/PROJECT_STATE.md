@@ -2,6 +2,27 @@
 
 Updated November 11, 2026, Asia/Manila. This is the portable handoff for the current project. Recheck Git, deployment, and platform state before acting. Historical notes are retained in [`../PROJECT_MEMORY.md`](../PROJECT_MEMORY.md) and `redesign/`.
 
+## Latest Cloud pass
+
+Remote `codex/portfolio-cloud-handoff` was verified at `e495ed3` before this pass;
+`main` remained `d5d50d8`. The branch was checked out cleanly in a running Cloud
+executor. Node **24.14.0**, npm **11.9.0**, clean installation, all four required
+React checks and the 40 separate legacy checks passed. Cloud Chromium exercised
+the current UI, including desktop/narrow layouts and emulated Pixel 7 touch.
+See [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for actual evidence and limits.
+
+The reusable installer is `scripts/cloud-setup.sh`. Cloud status has no saved
+source configuration/version ID, and no publish tool is available in this task.
+Publishing a reusable environment and physical Android/laptop-off acceptance
+remain pending phone actions; see [`CODEX_CLOUD.md`](CODEX_CLOUD.md).
+
+John authorized a separate Vercel CLI device sign-in from Android. It identifies
+his account as **jfmihoyofriends-9058**, on **Hobby**. New project
+**portfolio-space-gallery** belongs to that account. The connector still returns
+403 for `jan-s-projects7`; that workspace was not authorized or modified.
+Deployment URL, exact commit and live verification will be recorded here after
+the deployment succeeds. Until then there is no verified hosted preview.
+
 ## Current direction
 
 John Francis Espiritu is a Computer Science student seeking frontend internships, with full-stack work as a later direction. The portfolio uses a clean, mostly monochrome space atmosphere with purposeful motion. Preserve truthful project ownership and team/AI contribution language.
@@ -13,14 +34,14 @@ The active application is `docs/redesign/prototypes/space-gallery/`. It is a Rea
 | Item | State at this handoff |
 | --- | --- |
 | React application, resume, certificates, event gallery, project dialogs | Implemented locally; earlier verification is recorded in the active app README |
-| Controlled GSAP anchor scrolling | Implemented; local build and navigation edge-case tests pass; browser trajectory check pending |
-| Compact two-column About | Implemented; build passes; visual/mobile review pending |
-| Sparse space background replacing DarkVeil | Implemented; renderer lifecycle reviewed; live motion review pending |
-| Canvas particle headings | Implemented with semantic/static fallback; glyph alignment and pointer review pending |
-| Portable project instructions and cloud handoff | Prepared in this documentation update |
+| Controlled GSAP anchor scrolling | Cloud Chromium trajectory, rapid/interrupted navigation, history and motion toggling passed |
+| Compact two-column About | Cloud desktop/tablet and narrow layout review passed; physical phone pending |
+| Sparse space background replacing DarkVeil | Cloud pause/resume pixel and 105-star continuity checks passed |
+| Canvas particle headings | Cloud formation, pointer response/settling, static and semantic fallbacks checked |
+| Portable project instructions and cloud handoff | Reusable exact-Node installer tested; phone startup/publication instructions updated |
 | `codex/portfolio-cloud-handoff` branch and selected public source/assets | Pushed at implementation commit `b281ba5`; remote tree verified |
 | Separate Vercel preview from the active app directory | Approved target; setup/deployment and live checks pending |
-| Saved Codex Cloud environment | None confirmed at this handoff |
+| Saved Codex Cloud environment | Current task runs in Cloud; saved/published reusable environment still not confirmed |
 | Android phone review while laptop is off | Required and not performed |
 
 An approved step is not a verified outcome. Update the table after observing the result. Do not infer cloud or public-hosting readiness from local build success.
@@ -31,7 +52,7 @@ An approved step is not a verified outcome. Update the table after observing the
 - Inspected baseline: `main` at `d5d50d8`. The implementation is committed and pushed on the handoff branch, followed by documentation updates. Recheck Git status and the latest remote commit before changes.
 - Approved handoff branch: `codex/portfolio-cloud-handoff`. Keep the existing `main` GitHub Pages deployment unchanged.
 - GitHub Pages currently publishes the older root site from `main` and `/`. It does not publish the nested React build automatically.
-- The Vercel preview must use John's own Vercel account. The connector currently points at inaccessible `jan-s-projects7`; use the platform's account/team selection or connection flow. Do not change access or choose another team's project as a workaround.
+- The Vercel preview uses John's separately authorized `jfmihoyofriends-9058` Hobby account through Cloud CLI. The connector still points at inaccessible `jan-s-projects7`; leave that workspace and its permissions untouched.
 - A separate preview requires no custom domain, paid service, backend, or database. A loopback server is not the hosted preview.
 
 ## Build and source map
@@ -81,10 +102,17 @@ See [`CODEX_CLOUD.md`](CODEX_CLOUD.md) for platform setup, a reusable first-task
 
 The current UI revision passes TypeScript, build/prerender, four navigation edge-case tests, generated page/local asset/anchor checks, and the separate 40 legacy checks. A source-only temporary copy installed and built independently of the working node_modules. Package versions are pinned and Linux optional packages remain in the lockfile. GitHub Actions passed clean Linux installation and all these checks for implementation commit `b281ba5`.
 
-Browser verification is blocked because local browser use is disabled in Work settings. John is connected from Android and cannot operate the laptop UI during this pass. Do not represent earlier screenshots as validation of the new About layout, space field, particle headings, or controlled navigation. Vercel deployment remains blocked on selecting and authorizing John's own account; do not use the inaccessible preconfigured workspace.
+At the previous laptop handoff, browser verification was blocked by Work settings
+and Vercel by account selection. The current Cloud pass resolved browser access
+and own-account CLI authorization without laptop interaction. Current screenshots
+and results are linked in `CLOUD_VERIFICATION.md`. Physical-phone acceptance and
+reusable environment publication are still distinct pending steps.
 
 ## Remote verification
 
 Implementation commit: [`b281ba5cf33028535b24da44673d64e1c8dd62e9`](https://github.com/Jeyep18/portfolio-website/commit/b281ba5cf33028535b24da44673d64e1c8dd62e9). The remote tree matched all 172 committed files, including required source, documentation, lockfile, licenses, and curated media. Raw attachments, node_modules, dist, and .vercel were excluded. [Linux CI passed](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748). Main remains `d5d50d8`, and GitHub Pages still publishes main at `/`. Later documentation-only commits may follow this implementation commit.
 
-Vercel preview and saved Cloud environment are not yet created. Current platform access and Android/laptop-off checks remain pending. GitHub publication did not activate either service.
+The new Vercel project exists under the authorized own account; deployment/live
+verification is recorded in the latest status above. A saved published Cloud
+environment and physical Android/laptop-off checks remain pending. GitHub
+publication alone does not establish either result.
