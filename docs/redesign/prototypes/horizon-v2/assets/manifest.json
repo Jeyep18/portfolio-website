@@ -1,0 +1,39 @@
+{
+  "purpose": "Approved local portfolio preview only. Actual Godot recording-camera captures, not current gameplay or a design revision.",
+  "source_folder": "C:\\Users\\john2\\Documents\\Game Development\\Bagyong Bahay\\software-eng-fest\\design_previews\\house_teaser",
+  "transformation": "Resize and WebP encoding only; no grading, cropping or scene changes.",
+  "files": [
+    {
+      "file": "house-normal-800.webp",
+      "source": "01_living_dining_normal_godot.png",
+      "width": 800,
+      "height": 450,
+      "bytes": 66278,
+      "sha256": "cd67318fadf93085c77f0ace3e81505c964f3ce7c7bad0d30bfca27cf3f8d29a"
+    },
+    {
+      "file": "house-normal-1600.webp",
+      "source": "01_living_dining_normal_godot.png",
+      "width": 1600,
+      "height": 900,
+      "bytes": 185248,
+      "sha256": "315c3ec76d499d8193e2c962f9c7d3ff8667b04f073c211862862f650a9e9134"
+    },
+    {
+      "file": "house-storm-800.webp",
+      "source": "01_living_dining_wrecked_godot.png",
+      "width": 800,
+      "height": 450,
+      "bytes": 38470,
+      "sha256": "979b4af5b122616e236c3b22ed707aa2efab6c056f2df44981ebec54dd6ca250"
+    },
+    {
+      "file": "house-storm-1600.webp",
+      "source": "01_living_dining_wrecked_godot.png",
+      "width": 1600,
+      "height": 900,
+      "bytes": 102422,
+      "sha256": "87fd8a5c9ac060f58f12f1f65206549efe79e49f7a9d10064be9c6daa7f50df1"
+    }
+  ]
+}

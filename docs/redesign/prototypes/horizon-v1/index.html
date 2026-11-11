@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="An isolated motion study for John Francis Espiritu's portfolio.">
+  <title>John Francis Espiritu — Horizon study</title>
+  <link rel="icon" href="horizon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="study.css">
+  <script src="study.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="study-banner"><span>Portfolio exploration</span><span>Illuminated horizon / v1</span></div>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#main">John Francis Espiritu<span class="wordmark-dot" aria-hidden="true"></span></a>
+    <nav aria-label="Main"><a href="#work">Work</a><a href="#inspection">Process</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="scene" aria-hidden="true">
+        <svg class="static-horizon" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="atmosphere"><stop offset="0.85" stop-color="#0d1117" stop-opacity="0"/><stop offset="0.94" stop-color="#6c899f" stop-opacity=".05"/><stop offset="0.984" stop-color="#8aa8bd" stop-opacity=".24"/><stop offset="1" stop-color="#acc5d8" stop-opacity="0"/></radialGradient>
+            <linearGradient id="edge" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#27313d"/><stop offset=".6" stop-color="#a7bdce"/><stop offset="1" stop-color="#303c48"/></linearGradient>
+          </defs>
+          <circle cx="1060" cy="1675" r="1290" fill="url(#atmosphere)"/>
+          <circle cx="1060" cy="1675" r="1230" fill="#0a0d12" stroke="url(#edge)" stroke-width="1.5"/>
+        </svg>
+        <canvas id="horizon" data-state="initial" data-frames="0"></canvas>
+        <div class="scene-shade"></div>
+      </div>
+      <div class="hero-content wrap">
+        <p class="intro-label">Ideas, considered. Worlds, explored.</p>
+        <h1 id="hero-title">John Francis<br><span>Espiritu.</span></h1>
+        <p class="intro">Computer Science student exploring<br class="desktop-break"> web, app, and game development.</p>
+        <div class="hero-actions"><a class="primary-link" href="#work">Explore my work <span aria-hidden="true">↗</span></a><span class="availability"><i aria-hidden="true"></i>Open to freelance &amp; internships</span></div>
+      </div>
+      <div class="hero-bottom wrap"><a class="scroll-cue" href="#work"><span aria-hidden="true">↓</span> A closer look at the work</a><button id="motion-toggle" type="button" aria-pressed="false" hidden><span class="pause-icon" aria-hidden="true">Ⅱ</span><span id="motion-label">Pause motion</span></button></div>
+    </section>
+    <section class="work wrap" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><p class="section-kicker">Selected work</p><p class="section-aside">A project, and the thinking behind it.</p></div>
+      <div class="project-heading"><h2 id="work-title">Bagyong Bahay</h2><p>Game development<br><span>Private test candidate</span></p></div>
+      <figure class="project-media">
+        <div class="media-art" aria-hidden="true">
+          <svg viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="room" x2="0" y2="1"><stop stop-color="#233138"/><stop offset="1" stop-color="#111b20"/></linearGradient></defs><path d="M235 340 500 188 765 340 500 492Z" fill="url(#room)" stroke="#62787d"/><path d="M235 340V158L500 5v183M500 5l265 153v182" fill="none" stroke="#62787d"/><path d="m235 158 265 153 265-153M500 311v181" fill="none" stroke="#62787d" stroke-dasharray="4 8"/><path d="m287 310 213 123 213-123M340 280l160 92 160-92M393 249l107 62 107-62M447 218l53 31 53-31" fill="none" stroke="#42575b" opacity=".6"/><path d="m377 295 68-39 68 39-68 40Z" fill="#24363b" stroke="#799198"/><path d="M377 295v-63l68-39 68 39v63M445 193v63M377 232l68 39 68-39M445 271v64" fill="none" stroke="#799198"/></svg>
+        </div>
+        <figcaption><span>Project capture pending</span><span>Illustrative media placeholder · not a game screenshot</span></figcaption>
+      </figure>
+      <div class="project-summary"><p class="project-deck">Preparing a household<br>for an approaching storm.</p><div><p>A Filipino game about exploring, gathering supplies, and making decisions with limited time and money.</p><p class="contribution">Project lead. Collaborative game design and mechanics, substantial architecture work, map modeling, and visual contributions. Built with teammates and substantial AI assistance.</p><a class="text-link" href="#inspection">Inspect the interaction study <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+    <section class="inspection wrap" id="inspection" aria-labelledby="inspect-title">
+      <div class="inspection-intro"><p class="section-kicker">Inside the process</p><h2 id="inspect-title">Look a little closer.</h2><p>A study of how visitors could compare two artifacts and follow the decision behind a change.</p><p class="study-disclosure">Illustrative layouts only. This is not a documented revision of Bagyong Bahay.</p></div>
+      <div class="comparison">
+        <div class="comparison-toolbar"><span>Interface comparison</span><fieldset id="compare-controls" hidden><legend class="sr-only">Choose a layout</legend><button type="button" data-view="before" aria-pressed="true">Before</button><button type="button" data-view="after" aria-pressed="false">After</button></fieldset></div>
+        <div class="comparison-stages">
+          <figure class="artifact" id="before-artifact"><div class="mockup scattered" aria-hidden="true"><div class="mockup-head"><span></span><i></i></div><div class="mockup-line wide"></div><div class="mockup-line"></div><div class="mockup-cards"><div></div><div></div><div></div></div><div class="mockup-line short"></div></div><figcaption><strong>Before · equal emphasis</strong><span>In this example, three choices compete for attention.</span></figcaption></figure>
+          <figure class="artifact" id="after-artifact"><div class="mockup focused" aria-hidden="true"><div class="mockup-head"><span></span><i></i></div><div class="focus-layout"><div class="focus-primary"></div><div class="focus-secondary"><div class="mockup-line wide"></div><div class="mockup-line"></div><div class="mockup-line short"></div><div class="mockup-action"></div></div></div></div><figcaption><strong>After · a clear next step</strong><span>The same example gives one choice prominence and groups the supporting detail.</span></figcaption></figure>
+        </div>
+        <p id="comparison-announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+    <footer class="contact wrap" id="contact"><div><p class="section-kicker">Keep exploring</p><h2>Good work starts<br>with a conversation.</h2><p>Public contact details will be confirmed before publication.</p></div><a class="text-link" href="#main">Back to the horizon ↑</a></footer>
+  </main>
+  <aside class="prototype-notes wrap" aria-label="Prototype review notes"><details><summary>About this prototype</summary><p>This isolated study explores an original responsive horizon, native scrolling, and artifact comparison. Project imagery and comparison examples are placeholders. It is not the published portfolio.</p><dl><div><dt>Scene</dt><dd id="scene-status">Static fallback — JavaScript not started</dd></div><div><dt>Rendered frames</dt><dd id="frame-count">0</dd></div><div><dt>Recent frame interval</dt><dd id="frame-interval">Not sampled</dd></div></dl><p>Review routes: <a href="?motion=on">Enable motion for this review</a> · <a href="?fallback=1">Force static fallback</a> · <a href="?motion=off">Reduced-motion study</a> · <a href="?">Follow system preference</a></p><p>Enabling motion for review explicitly overrides reduced motion for that URL only. The default follows your system preference. Frame intervals measure animation callback spacing on this device, not GPU render time or a performance certification.</p></details></aside>
+</body>
+</html>

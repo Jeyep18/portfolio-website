@@ -1,178 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Francis Espiritu | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="icons/webicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="John Francis Espiritu. Computer Science student exploring web, app, and game development.">
+  <title>John Francis Espiritu | Ideas, design & development</title>
+  <link rel="icon" href="icons/webicon.png"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-
 <body>
-    <header class="header">
-        <div class="profile">
-            <a href="index.html" class="profile-link">
-                <img src="images/profile2.png" alt="Profile Picture" class="profile-picture">
-                <h1 class="header-text">Jan Espiritu</h1>
-            </a>
-        </div>
-        <div>
-            <button class="hamburger" id="hamburger">
-                ☰
-            </button>
-            <nav class="nav" id="nav">
-                <ul id="nav-list">
-                    <li><a href="#main-profile">Home</a></li>
-                    <li><a href="#about-me">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact-me">Contact Me</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="main-profile" class="main-profile">
-        <div class="profile-container">
-            <div class="main-profile-header">
-                <h2>John Francis Espiritu</h2>
-                <span class="location">
-                    <img src="./icons/geo-alt.svg" alt="location">
-                    <p>Pili, Camarines Sur, Philippines</p>
-                </span>
-            </div>
-            <span class="short-bio">
-                <p>Hi, I’m a 19-year-old Computer Science student at Ateneo de Naga University. I focus on frontend, web, and app development, creating functional and user-friendly digital solutions.</p>
-            </span>
-            <div class="socials-container">
-                <a href="https://www.linkedin.com/in/john-francis-espiritu-b3187834a" target="_blank"><img src="./icons/linkedin.svg" alt="linkedin"></a>
-                <a href="https://github.com/Jeyep18" target="_blank"><img src="./icons/github.svg" alt="github"></a>
-                <a href="mailto:jfrancis.espiritu@gmail.com" target="_blank"><img src="./icons/envelope-fill.svg" alt="email"></a>
-                <a href="https://web.facebook.com/gwenclart" target="_blank"><img src="./icons/facebook.svg" alt="facebook"></a>
-                <span>
-                    <p>jfrancis.espiritu@gmail.com</p>
-                </span>
-            </div>
-        </div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap"><a class="wordmark" href="#main" aria-label="John Francis Espiritu, home">John Francis Espiritu<span aria-hidden="true">.</span></a><nav aria-label="Main"><a href="#work">Work</a><a href="#about">About</a><a href="#contact" class="contact-nav">Let’s talk <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="scene" aria-hidden="true">
+        <svg class="static-horizon" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="halo"><stop offset=".8" stop-color="#8a9caa" stop-opacity="0"/><stop offset=".96" stop-color="#c6d0d8" stop-opacity=".2"/><stop offset="1" stop-color="#abc0d0" stop-opacity="0"/></radialGradient><radialGradient id="planet" cx="65%" cy="0%" r="85%"><stop stop-color="#59616a"/><stop offset=".25" stop-color="#272d34"/><stop offset=".8" stop-color="#07090c"/></radialGradient><filter id="terrain"><feTurbulence type="fractalNoise" baseFrequency=".012 .028" numOctaves="4" seed="18"/><feColorMatrix type="saturate" values="0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="soft-light"/></filter></defs><circle cx="1200" cy="470" r="310" fill="url(#halo)"/><circle cx="1200" cy="470" r="280" fill="url(#planet)" filter="url(#terrain)" stroke="#b6c1ca" stroke-width="1"/></svg>
+        <canvas id="horizon" data-state="initial" data-frames="0"></canvas><div class="scene-shade"></div>
+      </div>
+      <div class="hero-content wrap"><p class="intro-label">A student. A maker. Always curious.</p><h1 id="hero-title">Thoughtful ideas.<br><em>Made tangible.</em></h1><div class="hero-description"><p>I’m John Francis Espiritu.<br>I turn ideas into things you can experience.</p><p class="role">Computer Science student exploring<br class="desktop-break"> web, apps, and games.</p></div><a class="primary-link" href="#work">Discover the work <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-bottom wrap"><p>Open to freelance work<br>and internships</p><span class="horizon-caption" aria-hidden="true">A little perspective changes everything.</span><button id="motion-toggle" type="button" aria-pressed="false" hidden><span class="pause-icon" aria-hidden="true">Ⅱ</span><span id="motion-label">Pause motion</span></button></div>
     </section>
-
-    <section id="about-me" class="about-me">
-        <div class="about-me-container">
-            <h2>About Me</h2>
-            <p>I'm currently studying Computer Science at Ateneo de Naga University, i like making creative works and enjoy doing frontend, UI/UX development, graphic arts, and game environments. I'm also studying how to build interactive applications and web development.</p>
-            <p>I’ve worked on web and mobile apps, and game development in Roblox. My goal is to create solutions that are functional, secure, and user-friendly.</p>
-            <p>As of now I am still working on building a better portfolio (still, thanks for checking me out!).</p>
-        </div>
-        <div class="experiences-container">
-            <h2>My Experiences</h2>
-            <div class="experience-contents">
-                <div class="timeline">
-                    <div class="circle top"></div>
-                    <div class="line"></div>
-                    <div class="circle bottom"></div>
-                    <div class="line2"></div>
-                </div>
-                <div class="experiences">
-                    <h3>Started Programming</h3>
-                    <h4>June 2024</h4>
-                    <p>I enrolled as a BS Computer Science in Ateneo de Naga University (AdNU), i didn't have much prior experience in coding other than html and css. However, I tried my best to study programming languages such as Python before college classes started.</p>
-                    <h3>Joined my first Convention! [PYCON APAC 2025]</h3>
-                    <h4>February 1 - February 2</h4>
-                    <p>Pycon was intoduced to me by my seniors in AdNU, it was my first ever convention where I got to learn and connect with other people in the same field as I am. The speakers gave us valuable insights and shared their knowledge using Python. Overall, it was a wonderful experience as a first year student, and i'll be looking forward to it every year.</p>
-                </div>
-            </div>
-        </div>
+    <section class="work wrap" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><h2 id="work-title">Selected work</h2><p>Ideas taking shape through<br>design, direction, and development.</p></div>
+      <article id="bagyong" class="featured-project" aria-labelledby="bagyong-title"><a class="feature-image" href="#project-story" aria-label="Read about Bagyong Bahay"><img src="images/projects/house-normal-1600.webp" srcset="images/projects/house-normal-800.webp 800w, images/projects/house-normal-1600.webp 1600w" sizes="(max-width:700px) calc(100vw - 40px), calc(100vw - 112px)" width="1600" height="900" loading="lazy" alt="Warmly lit living and dining space in Bagyong Bahay, with corrugated roofing, a family table and household furnishings."><span class="image-shade"></span><span class="image-caption">A familiar place.<br>An approaching storm.</span><span class="image-link" aria-hidden="true">↗</span></a><div class="project-heading"><div><p class="project-type">Game development / Godot</p><h3 id="bagyong-title">Bagyong Bahay</h3></div><p class="project-status">Private Windows test candidate</p></div>
+      <div class="project-summary" id="project-story"><p class="project-deck">The decisions before<br>the storm arrives.</p><div><p>A Filipino household prepares for an approaching storm. Explore, gather supplies, and decide how to spend limited money and time.</p><p>I led the project and collaborated on its idea and mechanics. My work included much of the game architecture, map modeling, graphics, and visual direction, with teammates handling parts of the code and implementation.</p><p class="contribution">Developed with substantial AI assistance. Team contributions and third-party assets remain part of the work.</p><a class="text-link" href="#inspection">Explore the environment <span aria-hidden="true">↗</span></a></div></div></article>
     </section>
-
-    
-    <section id="projects" class="projects">
-        <div class="my-tools-container">
-            <h2>What I work with</h2>
-            <div class="tools">
-                <div>
-                    <img src="./icons/html5-svgrepo-com.svg" alt="html5">
-                    <h4>HTML</h4>
-                    <img src="./icons/css3-02-svgrepo-com.svg" alt="css3">
-                    <h4>CSS</h4>
-                </div>
-                <div>
-                    <img src="./icons/react-16-svgrepo-com.svg" alt="react">
-                    <h4>React Native</h4>
-                    <img src="./icons/flutter-svgrepo-com.svg" alt="flutter">
-                    <h4>Flutter</h4>
-                </div>
-                <div>
-                    <img src="./icons/c-logo-svgrepo-com.svg" alt="cpp">
-                    <h4>C++</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class = "projects-container">
-            <h2>My Projects</h2>
-                <div class="project-items">
-                    <a href="/project_pages/CondoEase-Project.html" target="_blank">
-                        <div class="project-pic">
-                            <div class="project-info">
-                                <h3>CondoEase Mobile App UI</h3>
-                                <span>
-                                    Simple app UI with functions using React Native & Expo.
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/project_pages/CondoEase-Project.html" target="_blank">
-                        <div class="project-pic">
-                            <div class="project-info">
-                                <h3>Project 2</h3>
-                                <span>Description</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <h2>My Personal Projects</h2>
-                <div class="project-items">
-                    <div class="project-pic">
-                        <div class="project-info">
-                            <h3>Project 1</h3>
-                            <span>Description...</span>
-                        </div>
-                    </div>
-                    <div class="project-pic">
-                        <div class="project-info">
-                            <h3>Project 2</h3>
-                            <span>Description...</span>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </section>
-
-    <section id="contact-me" class="contact-me">
-        <div class="contact-me-container">
-            <h2>My Contact Information</h2>
-            <div class="contact-info">
-                <p><b>Email: </b>jfrancis.espiritu@gmail.com</p>
-                <p><b>Contact: </b>+63 993 869 1998 or +63 948 451 6446</p>
-            </div>
-            <div class="contact-socials">
-                <a href="https://www.linkedin.com/in/john-francis-espiritu-b3187834a" target="_blank"><img src="./icons/linkedin.svg" alt="linkedin"></a>
-                <a href="https://github.com/Jeyep18" target="_blank"><img src="./icons/github.svg" alt="github"></a>
-                <a href="mailto:jfrancis.espiritu@gmail.com" target="_blank"><img src="./icons/envelope-fill.svg" alt="email"></a>
-                <a href="https://web.facebook.com/gwenclart" target="_blank"><img src="./icons/facebook.svg" alt="facebook"></a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <h5>&copy;2025 John Francis Espiritu | Philippines</h5>
-        <h5>jfrancis.espiritu@gmail.com</h5>
-    </footer>
-
-    <script src="script.js"></script>
+    <section class="inspection wrap" id="inspection" aria-labelledby="inspect-title"><div class="inspection-intro"><p class="section-kicker">A closer look</p><h2 id="inspect-title">One home.<br>Two very different<br>atmospheres.</h2><p>The house’s normal and storm-damaged environments show how lighting, props, and structure change the feeling of a familiar space.</p><p class="capture-context">Actual Godot recording-camera captures. These are two authored environment states, not a before-and-after design revision.</p></div>
+      <div class="comparison"><div class="comparison-toolbar"><span>Explore the house</span><fieldset id="compare-controls" hidden><legend class="sr-only">Choose an environment state</legend><button type="button" data-view="before" aria-pressed="true">Normal</button><button type="button" data-view="after" aria-pressed="false">Storm-damaged</button></fieldset></div><div class="comparison-stages">
+      <figure class="artifact" id="before-artifact"><div class="artifact-image"><img class="mockup" src="images/projects/house-normal-1600.webp" srcset="images/projects/house-normal-800.webp 800w, images/projects/house-normal-1600.webp 1600w" sizes="(max-width:850px) calc(100vw - 40px), 60vw" width="1600" height="900" loading="lazy" alt="Normal house environment: warm practical lighting, an intact roof, chairs around the dining table and stocked kitchen shelving."></div><figcaption><strong>Normal house</strong><span>Warm light, everyday objects, and an intact interior establish the household setting.</span></figcaption></figure>
+      <figure class="artifact" id="after-artifact"><div class="artifact-image"><img class="mockup" src="images/projects/house-storm-1600.webp" srcset="images/projects/house-storm-800.webp 800w, images/projects/house-storm-1600.webp 1600w" sizes="(max-width:850px) calc(100vw - 40px), 60vw" width="1600" height="900" loading="lazy" alt="Storm-damaged house environment: broken roof beams, overturned chairs, scattered household objects and cooler light."></div><figcaption><strong>Storm-damaged house</strong><span>Broken structure, displaced furnishings, and cooler light transform the same room.</span></figcaption></figure>
+      </div><p id="comparison-announcement" class="sr-only" role="status" aria-live="polite"></p></div></section>
+    <section class="more-work wrap" aria-labelledby="more-title"><div class="section-heading"><h2 id="more-title">Other explorations</h2><p>Different problems.<br>The same curiosity.</p></div><article class="project-row"><div><p class="project-type">Collaborative hackathon prototype</p><h3>CherIt</h3></div><div><p>A browser-local lesson-pack library for Bicol public-school teachers. Our team shaped the architecture and features together; I contributed website direction, feature design, and the presentation.</p><a class="text-link" href="https://github.com/Jeyep18/InnoLab-Hackathon-2026">View project source <span aria-hidden="true">↗</span></a></div></article><article class="project-row"><div><p class="project-type">Unfinished transport prototype</p><h3>TransitPH</h3></div><div><p>An idea for helping people navigate local public transportation. Still a work in progress, with no claim of verified route coverage or accuracy.</p><a class="text-link" href="https://github.com/Jeyep18/transit-ph">View project source <span aria-hidden="true">↗</span></a></div></article></section>
+    <section class="about wrap" id="about" aria-labelledby="about-title"><div><p class="section-kicker">Behind the work</p><h2 id="about-title">Curiosity is<br>the starting point.</h2></div><div><p>I’m John Francis Espiritu, a Computer Science student exploring web, app, and game development.</p><p>I develop ideas and direct their implementation, using AI to explore possibilities and help bring them to life. Across team projects, I care about explaining the decisions, sharing credit, and being clear about what has actually been tested.</p><p>Space, science, and the sense of scale in <em>Interstellar</em> are lasting sources of inspiration.</p></div></section>
+    <footer class="contact wrap" id="contact"><p class="section-kicker">Have something in mind?</p><a class="contact-title" href="mailto:jfrancis.espiritu@gmail.com">Let’s make<br>something thoughtful<span aria-hidden="true">↗</span></a><div class="footer-bottom"><a href="mailto:jfrancis.espiritu@gmail.com">jfrancis.espiritu@gmail.com</a><div><a href="https://github.com/Jeyep18">GitHub ↗</a><a href="https://www.linkedin.com/in/john-francis-espiritu-b3187834a">LinkedIn ↗</a><a href="#main">Back to top ↑</a></div></div></footer>
+  </main>
+  <div hidden aria-hidden="true"><span id="scene-status"></span><span id="frame-count"></span><span id="frame-interval"></span></div>
 </body>
 </html>
