@@ -21,7 +21,7 @@ npm ci
 npm run build
 ```
 
-Use the lockfile. The local reference is Node.js 24.14.0 and npm 11.9.0. `npm run build` checks TypeScript, runs Vite, prerenders three pages, and copies `assets/` to `dist/`. No backend or environment secrets are required. Python is optional for `preview.py` at `127.0.0.1:8769`; its `?scripts=off` mode checks script-free output.
+Use the lockfile. The local reference is Node.js 24.14.0 and npm 11.9.0. `npm run build` checks TypeScript, runs Vite, prerenders four pages (home, archive, CherIt, and 404), and copies `assets/` to `dist/`. No backend or environment secrets are required. Python is optional for `preview.py` at `127.0.0.1:8769`; its `?scripts=off` mode checks script-free output.
 
 ## Content, accessibility, and evidence
 

@@ -12,11 +12,11 @@ Runtime dependencies are React 19.3.1, React DOM 19.3.1, and GSAP 3.15.1. The bu
 
 ## Source and behavior
 
-- [src/App.tsx](src/App.tsx) composes the pages and navigation. [src/styles.css](src/styles.css) owns the current styling. The three HTML files are build shells. Earlier standalone scripts and styles are retained but are not loaded by these pages.
+- [src/App.tsx](src/App.tsx) composes the pages and navigation. [src/styles.css](src/styles.css) owns the current styling. The four HTML files are build shells. Earlier standalone scripts and styles are retained but are not loaded by these pages.
 - [src/data.ts](src/data.ts) holds projects, contacts, tools, event details, certificates, photos, and alt text. Keep the approved five projects and four experiences until John chooses to expand them.
 - [src/components/ToolsAbout.tsx](src/components/ToolsAbout.tsx) contains the skills, workflow, education, interests, current activities, and profile placeholder.
-- [src/motion.tsx](src/motion.tsx) coordinates motion preference, scroll reveals, and internal page transitions. Anchor links use an explicit GSAP scroll controller with interruption, history, focus, and bounds handling. Each home section occupies at least one viewport and grows naturally when its content needs more room.
-- [src/components/ParticleHeading.tsx](src/components/ParticleHeading.tsx) assembles particles into the major headings, settles into crisp canvas text, and responds locally to the pointer. Semantic HTML text remains available for assistive technology, selection, script-free output, and static motion settings. Formation runs once per mounted heading; settled render loops stop until interaction.
+- [src/motion.tsx](src/motion.tsx) coordinates motion preference, scroll reveals, and internal page transitions. Anchor links use an explicit GSAP scroll controller with interruption, history, focus, and bounds handling. Desktop sections retain their viewport rhythm; mobile nonhero sections use natural height with tighter spacing.
+- [src/components/ParticleHeading.tsx](src/components/ParticleHeading.tsx) assembles particles into the major headings, settles into crisp native HTML text, and responds locally to the pointer. Semantic HTML text remains available for assistive technology, selection, script-free output, and static motion settings. Formation runs once per mounted heading; settled render loops stop until interaction.
 - [src/effects/SpaceField.tsx](src/effects/SpaceField.tsx) draws a sparse space background with small idle movement and depth. Stars and elapsed state survive pause and dialog inspection. The older DarkVeil source is preserved but no longer imported.
 - [src/effects/eclipse.js](src/effects/eclipse.js) retains the original rotating planet with pointer-responsive rim light and independently drifting stars. The black hole renderer and toggle have been removed. No Three.js dependency was needed for the existing scene.
 - [src/components/Experience.tsx](src/components/Experience.tsx) expands the selected event's description and links inside the left timeline. The right photo rail preserves each image's proportions, can show several portrait photos together, and opens a full-photo dialog. Arrow keys, gallery controls, and native scrolling update selection.
@@ -25,7 +25,7 @@ Runtime dependencies are React 19.3.1, React DOM 19.3.1, and GSAP 3.15.1. The bu
 
 Pause motion freezes the hero, logo drift, background, and contact particles and disables animated transitions. Hidden or offscreen renderers suspend their drawing loops. Modal inspection pauses the background effects and restores focus and page scrolling on dismissal.
 
-The build prerenders all three pages using [scripts/prerender.mjs](scripts/prerender.mjs), then React hydrates the existing content. Main copy, links, timeline disclosures, and archive details remain available without client JavaScript.
+The build prerenders the three portfolio pages and a custom `404.html` using [scripts/prerender.mjs](scripts/prerender.mjs), then React hydrates the existing content. Main copy, links, timeline disclosures, and archive details remain available without client JavaScript.
 
 ## Content and attribution
 
@@ -64,3 +64,15 @@ Strict TypeScript, Vite build, three-page prerender, four navigation edge-case t
 Independent source review identified and checked corrections for motion-toggle anchor jumps, stale page departures after rapid navigation, and star regeneration on pause. These behaviors were subsequently exercised in Cloud Chromium on November 11, 2026. Node 24.14.0/npm 11.9.0 passed all four required application commands; the separate legacy suite also passed. Desktop/narrow About, particle formation/pointer settling, 105-star pause/resume continuity, navigation/history/interruption, project/photo dialogs, résumé download, all three routes, reduced motion and script-free content passed the exercised checks. Pixel 7 touch emulation passed, and John confirmed all three public pages load on Android with the laptop off. Full physical interaction review and Safari/Firefox remain untested. See [the full Cloud verification record](../../../CLOUD_VERIFICATION.md) and [current hosting/environment status](../../../PROJECT_STATE.md).
 
 For reusable Linux setup, run `bash scripts/cloud-setup.sh` from the repository root. It installs checksum-verified Node 24.14.0 in ignored `.cache/portfolio-cloud/`, then runs installation and all required checks. The [Cloud guide](../../../CODEX_CLOUD.md) records startup and phone-only publication steps. `vercel.json` in this application records Vite, `npm ci`, `npm run build`, and `dist`; set the Vercel project's root directory to this application separately.
+
+
+## Mobile revision and laptop handoff
+
+The latest source uses a rounded glass mobile header with an aligned full-width
+animated menu, a compact two-by-two process selector, tighter mobile spacing,
+animated About/experience disclosures and a prerendered custom 404. Missing URLs
+return HTTP 404 and use root-relative bundles so nested paths keep their styling.
+Navigation, process content and error recovery remain usable without JavaScript.
+See [the laptop handoff](../../../LOCAL_CODEX_HANDOFF.md) for the reviewed Preview,
+public production distinction, verification and transfer assessment. The latest
+Git handoff is **not** a new Vercel deployment.

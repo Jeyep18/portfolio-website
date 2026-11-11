@@ -2,7 +2,50 @@
 
 Updated November 11, 2026, Asia/Manila. This is the portable handoff for the current project. Recheck Git, deployment, and platform state before acting. Historical notes are retained in [`../PROJECT_MEMORY.md`](../PROJECT_MEMORY.md) and `redesign/`.
 
-## Latest Cloud pass
+## Latest Git handoff — November 11, 2026
+
+John authorized committing and pushing the accumulated mobile revisions to
+`codex/portfolio-cloud-handoff`, with **no further Vercel deployment**. The final
+commit is recorded by Git; fetch and verify the remote HEAD before continuing.
+`main` was verified at `d5d50d8e624792caf97c615bde6ca5c618a0576d` before this push.
+
+Read [the laptop handoff](LOCAL_CODEX_HANDOFF.md), [the copyable local Codex
+prompt](LOCAL_CODEX_PROMPT.md), and [the mobile reference index](MOBILE_REFERENCES.md).
+These contain the final design decisions, historical requests, account boundaries,
+verification evidence and conditional Vercel transfer assessment.
+
+- Latest source: crisp HTML heading glyphs with additive particles; a shared
+  rounded glass mobile header and full-width animated dropdown; tighter mobile
+  section spacing; compact two-by-two process selector; animated About/event
+  disclosures; a labelled temporary portrait; four prerendered pages including
+  an actual 404 response; favicon and generated per-page search/share metadata.
+- Latest reviewed Preview: https://portfolio-space-gallery-rhqmpwslx-jfmihoyofriends-9058.vercel.app/
+  (`dpl_2MWTqFy5q8AXVBNNUNLrPV2z22yu`, READY, protected). This was uploaded
+  from the working tree based on `4b7d08d`, before the Git handoff commit. It is
+  not an automatic deployment of the new commit.
+- Public production: https://portfolio-space-gallery.vercel.app/ still serves
+  `d4ddf1dbc2a39ced1e6d61cd871cec761974f255`. A Git push does not update it:
+  a read-only Vercel API inspection reconfirmed `link: null` for this project,
+  and the GitHub workflow runs verification only. No deployment, transfer,
+  promotion or account permission change is authorized by this handoff.
+- Node 24.14.0/npm 11.9.0: seven application tests, TypeScript/Vite build,
+  four-page build validation and 40 separate legacy checks passed again before
+  the handoff commit. Earlier clean `npm ci` passed with the same lockfile.
+  Latest local/hosted Chromium checks at 320, 390, 680 and 1440px passed menu
+  alignment, spacing, process choices, interruptible disclosures, event/photos,
+  dialog focus, keyboard, motion toggling, 404 and script-free content.
+- Physical Android acceptance of the latest revisions remains pending. Earlier
+  public three-page access with the laptop off was confirmed by John. Firefox,
+  Safari, Google indexing and a newly published reusable Cloud environment have
+  not been verified.
+- Transfer research is read-only: the requested `jan-7-projects` is not verified
+  as the earlier inaccessible `jan-s-projects7`. Confirm the exact target and
+  required ownership/membership first; see the laptop handoff.
+
+## Earlier Cloud setup and initial deployment evidence
+
+The following records describe the initial setup, not the latest mobile source
+or Preview. Newer status above and in the laptop handoff takes precedence.
 
 Remote `codex/portfolio-cloud-handoff` was verified at `e495ed3` before this pass;
 `main` remained `d5d50d8`. The branch was checked out cleanly in a running Cloud
@@ -55,7 +98,7 @@ up. See `CODEX_CLOUD.md` for that optional phone step.
 
 John Francis Espiritu is a Computer Science student seeking frontend internships, with full-stack work as a later direction. The portfolio uses a clean, mostly monochrome space atmosphere with purposeful motion. Preserve truthful project ownership and team/AI contribution language.
 
-The active application is `docs/redesign/prototypes/space-gallery/`. It is a React migration with three prerendered pages. The repository root remains an older static homepage. Earlier horizon/frontend studies and `redesign/source-before-redesign/` are historical material, not the active implementation.
+The active application is `docs/redesign/prototypes/space-gallery/`. It is a React migration with three portfolio pages and a prerendered custom 404. The repository root remains an older static homepage. Earlier horizon/frontend studies and `redesign/source-before-redesign/` are historical material, not the active implementation.
 
 ## Approved work and status
 

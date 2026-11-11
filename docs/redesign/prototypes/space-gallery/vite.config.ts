@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   publicDir: false,
   build: {
-    rollupOptions: { input: ['index.html', 'archive.html', 'cherit.html'] }
+    rollupOptions: { input: ['index.html', 'archive.html', 'cherit.html', '404.html'] }
   },
   server: {
     host: '127.0.0.1',

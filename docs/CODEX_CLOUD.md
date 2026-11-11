@@ -2,6 +2,15 @@
 
 Updated November 11, 2026. Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for current scope and hosting status, and [`CLOUD_VERIFICATION.md`](CLOUD_VERIFICATION.md) for the completed Cloud install/browser checks. A running Cloud task and a published reusable environment are different states. John confirmed all three public pages load on Android with the laptop off; full physical interaction review is still pending.
 
+## Latest laptop continuation
+
+The current mobile source and review Preview are described in
+[LOCAL_CODEX_HANDOFF.md](LOCAL_CODEX_HANDOFF.md). Use
+[LOCAL_CODEX_PROMPT.md](LOCAL_CODEX_PROMPT.md) to resume on a laptop. John requested
+GitHub push only for this handoff; no new Vercel deployment or transfer. Initial
+URLs and commit evidence below are historical; consult PROJECT_STATE.md for the
+latest Preview. Git transfers portable files, not this conversation or credentials.
+
 ## What must be available remotely
 
 Codex Cloud tasks use isolated environments. A GitHub push does not automatically transfer this local chat, private global memory, or uncommitted laptop files. Implementation commit `b281ba5` is already pushed to `codex/portfolio-cloud-handoff` in [`Jeyep18/portfolio-website`](https://github.com/Jeyep18/portfolio-website) and passed [Linux CI](https://github.com/Jeyep18/portfolio-website/actions/runs/42982527748). Required source/docs/assets were verified in the remote tree. Confirm the latest branch and files before creating the environment. Keep `main` and its existing GitHub Pages site unchanged.
@@ -62,7 +71,7 @@ docs/PROJECT_STATE.md, and docs/CODEX_CLOUD.md. Inspect the checkout and report
 the current branch/commit and any differences from the documented state.
 
 The active app is docs/redesign/prototypes/space-gallery. Build it with npm ci
-and npm run build from that directory. Check all three prerendered pages and
+and npm run build from that directory. Check all three portfolio pages plus the custom 404 and
 required local assets. Report the actual Node/npm versions and build result.
 Root node tests/site.test.mjs covers only the legacy site, not React.
 
@@ -85,7 +94,7 @@ The approved target is a separate Vercel preview using John's own account. The c
 The verified public phone URL is https://portfolio-space-gallery.vercel.app/.
 The separate Preview is
 https://portfolio-space-gallery-6yswp7340-jfmihoyofriends-9058.vercel.app/ and
-requires sign-in to that Vercel account. Both currently serve source commit
+requires sign-in to that Vercel account. Those initial deployments served source commit
 `d4ddf1dbc2a39ced1e6d61cd871cec761974f255`. Vercel required the new project's
 first deployment to be labelled Production; John separately approved it before
 the Preview was created. That deployment belongs only to this new project.

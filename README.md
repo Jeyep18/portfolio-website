@@ -18,7 +18,7 @@ npm run build
 
 The lockfile records React 19.3.1, React DOM 19.3.1, GSAP 3.15.1, TypeScript 7.0.2, and Vite 8.3.7. Node.js 24.14.0 with npm 11.9.0 passed the Cloud install, tests, build and output checks. From a Linux checkout, `bash scripts/cloud-setup.sh` installs that checksum-verified runtime and runs all required checks. See [the Cloud verification record](docs/CLOUD_VERIFICATION.md) for browser evidence and remaining platform/device checks.
 
-The build checks TypeScript, builds the application, prerenders `index.html`, `archive.html`, and `cherit.html`, and copies curated assets into `dist/assets/`. There is no backend or required environment secret.
+The build checks TypeScript, builds the application, prerenders `index.html`, `archive.html`, `cherit.html`, and the custom `404.html`, and copies curated assets into `dist/assets/`. There is no backend or required environment secret.
 
 To inspect the built output, run this optional Python helper from the repository root:
 
@@ -60,3 +60,5 @@ The legacy suite passed 40 checks on November 11, 2026. It does not test the Rea
 A dedicated branch, `codex/portfolio-cloud-handoff`, and the separate Vercel project are the publication targets for the handoff. Check deployed commits, completed checks and remaining environment/interaction steps in [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md). Keep the existing GitHub Pages deployment unchanged.
 
 Keep `.codex-attachments/`, dependencies, build output, credentials, provider metadata, caches, and logs out of published source. Preserve historical studies under `docs/redesign/` and the original source backup under `docs/redesign/source-before-redesign/`.
+
+For the Android Cloud → laptop continuation, use the [local Codex prompt](docs/LOCAL_CODEX_PROMPT.md), [handoff](docs/LOCAL_CODEX_HANDOFF.md), and [mobile reference index](docs/MOBILE_REFERENCES.md). The latest Git handoff does not deploy to Vercel.

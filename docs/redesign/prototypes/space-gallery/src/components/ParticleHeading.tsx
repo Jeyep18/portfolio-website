@@ -33,17 +33,8 @@ export function ParticleHeading({ as: Tag = 'h2', id, children, className = '' }
       pointer.strength += ((pointer.present ? 1 : 0) - pointer.strength) * (1 - Math.exp(-dt * 12));
       context.clearRect(0, 0, width, height);
       const solid = Math.max(0, (progress - .62) / .38);
-      context.globalAlpha = solid;
-      context.drawImage(stencil, 0, 0);
-      if (solid && pointer.strength > .001) {
-        context.globalAlpha = pointer.strength * .92;
-        context.globalCompositeOperation = 'destination-out';
-        const cutout = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 52);
-        cutout.addColorStop(0, '#000'); cutout.addColorStop(.4, '#000'); cutout.addColorStop(1, '#0000');
-        context.fillStyle = cutout;
-        context.fillRect(pointer.x - 52, pointer.y - 52, 104, 104);
-        context.globalCompositeOperation = 'source-over';
-      }
+      heading.style.setProperty('--heading-opacity', String(solid));
+      // Native HTML supplies the final glyphs; the canvas only supplies particles.
       context.fillStyle = '#e7e5fa';
       const step = Math.min(dt * 60, 2);
       let disturbed = false;
@@ -58,7 +49,7 @@ export function ParticleHeading({ as: Tag = 'h2', id, children, className = '' }
         dot.x += dot.vx * step; dot.y += dot.vy * step;
         const displacement = Math.hypot(dot.x - dot.tx, dot.y - dot.ty);
         disturbed ||= displacement > .12;
-        context.globalAlpha = Math.min(1, (1 - solid) * .95 + force * .95 + Math.min(1, displacement / 18) * solid * .28);
+        context.globalAlpha = Math.min(1, (1 - solid) * .95 + force * .95 + Math.min(1, displacement / 18) * solid * .18);
         context.fillRect(dot.x - .72, dot.y - .72, 1.44, 1.44);
       }
       context.globalAlpha = 1;
@@ -83,7 +74,7 @@ export function ParticleHeading({ as: Tag = 'h2', id, children, className = '' }
       height = Math.ceil(box.height) + padding * 2;
       if (width < 61 || height < 61) return;
       stencil.width = width; stencil.height = height;
-      const ratio = Math.min(devicePixelRatio || 1, 1.5);
+      const ratio = Math.min(devicePixelRatio || 1, 2);
       canvas.width = Math.ceil(width * ratio); canvas.height = Math.ceil(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
       const walker = document.createTreeWalker(source, NodeFilter.SHOW_TEXT);
@@ -141,6 +132,7 @@ export function ParticleHeading({ as: Tag = 'h2', id, children, className = '' }
     return () => {
       disposed = true; lifecycle.abort(); observer.disconnect(); resize.disconnect(); cancelAnimationFrame(frame);
       delete heading.dataset.particles; delete heading.dataset.formed;
+      heading.style.removeProperty('--heading-opacity');
       context.clearRect(0, 0, width, height);
     };
   }, [motion, inspecting]);

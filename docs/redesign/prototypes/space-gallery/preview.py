@@ -7,6 +7,18 @@ from urllib.parse import parse_qs, urlsplit
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
+    def send_error(self, code, message=None, explain=None):
+        error_page = Path(self.directory) / "404.html"
+        if code != 404 or not error_page.is_file():
+            return super().send_error(code, message, explain)
+        content = error_page.read_bytes()
+        self.send_response(404)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(content)))
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(content)
+
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
         if parse_qs(urlsplit(self.path).query).get("scripts") == ["off"]:

@@ -66,7 +66,9 @@ export function usePageTransitions() {
       const target = sectionFromHash(hash || '#main', document);
       if (!target) return;
       stop();
-      const top = scrollDestination(target.getBoundingClientRect().top + window.scrollY,
+      const mobileInset = matchMedia('(max-width: 680px)').matches && target.classList.contains('chapter')
+        ? (document.querySelector('.site-header')?.getBoundingClientRect().height || 62) + 24 : 0;
+      const top = scrollDestination(target.getBoundingClientRect().top + window.scrollY - mobileInset,
         document.documentElement.scrollHeight, window.innerHeight);
       const finish = () => {
         document.documentElement.dataset.navigation = 'idle';

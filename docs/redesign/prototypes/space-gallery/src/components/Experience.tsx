@@ -4,6 +4,7 @@ import { events, type Photo } from '../data';
 import { Reveal, useMotion } from '../motion';
 import { Modal } from './Modal';
 import { ParticleHeading } from './ParticleHeading';
+import { AnimatedDetails } from './AnimatedDetails';
 
 function PhotoRail({ photos, eventName }: { photos: Photo[]; eventName: string }) {
   const rail = useRef<HTMLDivElement>(null);
@@ -35,6 +36,7 @@ function PhotoRail({ photos, eventName }: { photos: Photo[]; eventName: string }
   };
   if (!photos.length) return <div className="event-empty"><span aria-hidden="true">✧</span><p>Event photos pending</p><small>{eventName}</small></div>;
   return <div className="photo-gallery">
+    <p className="mobile-swipe-hint">Swipe photos · tap to enlarge</p>
     <div ref={rail} className="photo-rail" aria-label={eventName + ' photo gallery'}
       onKeyDown={event => {
         const direction = { ArrowLeft: -1, ArrowRight: 1 }[event.key];
@@ -68,17 +70,36 @@ function PhotoRail({ photos, eventName }: { photos: Photo[]; eventName: string }
 
 export function Experience() {
   const [active, setActive] = useState(0);
-  const { ready } = useMotion();
+  const { ready, motion } = useMotion();
+  const gallery = useRef<HTMLDivElement>(null);
+  const previousHeight = useRef<number | undefined>(undefined);
+  useEffect(() => {
+    const element = gallery.current;
+    if (!element) return;
+    const end = element.getBoundingClientRect().height;
+    if (!motion) { previousHeight.current = end; return; }
+    const start = previousHeight.current ?? end;
+    let disposed = false;
+    element.style.overflow = 'hidden';
+    const animation = element.animate([
+      { height: start + 'px', opacity: .2, transform: 'translateY(8px)' },
+      { height: end + 'px', opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    void animation.finished.then(() => { if (!disposed) element.style.overflow = ''; }).catch(() => {});
+    return () => {
+      disposed = true;
+      previousHeight.current = element.getBoundingClientRect().height;
+      animation.cancel(); element.style.overflow = '';
+    };
+  }, [active, motion]);
   const event = events[active];
   return <section className="experience chapter shell" id="experience" aria-labelledby="experience-title" data-ready={ready || undefined}>
     <div><p className="eyebrow">Learning with people</p><ParticleHeading id="experience-title">Out of the classroom<span>.</span></ParticleHeading></div>
     <Reveal delay={.45}><div className="experience-layout">
       <ol className="timeline" aria-label="Experience timeline">
         {events.map((item, index) => <li key={item.id}>
-          <details open={index === active}>
-            <summary aria-controls={item.id} onClick={e => {
-              if (ready) { e.preventDefault(); setActive(index); }
-            }} onKeyDown={e => {
+          <AnimatedDetails open={index === active} controls={item.id}
+            onRequestOpen={() => setActive(index)} onSummaryKeyDown={e => {
               const direction = { ArrowUp: -1, ArrowDown: 1 }[e.key];
               if (!direction) return;
               e.preventDefault();
@@ -86,10 +107,10 @@ export function Experience() {
               setActive(next);
               const summaries = e.currentTarget.closest('ol')?.querySelectorAll('summary');
               (summaries?.[next] as HTMLElement)?.focus();
-            }}>
+            }} summary={<>
               <span className="timeline-year">{item.year}</span>
               <span>{item.name}</span><span className="timeline-indicator" aria-hidden="true">{index === active ? '−' : '+'}</span>
-            </summary>
+            </>}>
             <div className="event-detail" id={item.id}><p className="event-date">{item.date}</p>
               <p className="event-venue">{item.venue}</p><p>{item.description}</p>
               <div className="event-links">
@@ -98,10 +119,10 @@ export function Experience() {
               </div>
               <div className="event-fallback-media">{item.photos.map(photo => <img key={photo.src} src={photo.src} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" />)}</div>
             </div>
-          </details>
+          </AnimatedDetails>
         </li>)}
       </ol>
-      <div className="event-gallery"><PhotoRail key={event.id} photos={event.photos} eventName={event.name} /></div>
+      <div className="event-gallery" ref={gallery}><PhotoRail key={event.id} photos={event.photos} eventName={event.name} /></div>
     </div></Reveal>
   </section>;
 }
